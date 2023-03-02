@@ -20,6 +20,8 @@ import functional.MyCon;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private PreparedStatement st;
+	private ResultSet rs;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -41,9 +43,6 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		PreparedStatement st;
-		ResultSet rs;
 		
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -54,36 +53,32 @@ public class LoginServlet extends HttpServlet {
 			st = MyCon.getCon().prepareStatement("select * from user where email = ?;");
 			st.setString(1, email);
 			rs = st.executeQuery();
+			// if the inserted email is not exist
 			if(!rs.next()) {
 				session.setAttribute("error_message","this account is not exist");
 				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
 				return;
 			} 
-//			else {
-//				session.setAttribute("error_message","wtf bro you have an error");
-//				session.removeAttribute(ERROR_MESSAGE);
-//				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
-//				response.sendRedirect("/Green-Horse/LoginPage");
-//			}
+			
 			st = MyCon.getCon().prepareStatement("select * from user where email = ? and password = ?;");
 			st.setString(1, email);
 			st.setString(2, password);
 			rs = st.executeQuery();
+			// if the inserted password is not correct		
 			if(!rs.next()) {
 				session.setAttribute("error_message","password uncorrect");
 				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
 				return;
 			} 
-			
+
+			// if the email and password both correct
+			this.getServletContext().getRequestDispatcher("/MainPage").forward(request, response);
+			return;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-
-		this.getServletContext().getRequestDispatcher("/MainPage").forward(request, response);
-		
-		
+		}		
 		
 	}
 

@@ -40,13 +40,11 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		System.out.println("0");
+		String firstname,lastname,displayname,email,password,confirmpassword;
 		
 		HttpSession session = request.getSession();
 		
-		String firstname,lastname,displayname,email,password,confirmpassword;
+		// get the values of the input fields
 		firstname = request.getParameter("firstname");
 		lastname = request.getParameter("lastname");
 		displayname = request.getParameter("displayname");
@@ -54,6 +52,7 @@ public class RegisterServlet extends HttpServlet {
 		password = request.getParameter("password");
 		confirmpassword = request.getParameter("confirmpassword");
 		
+		// if the password 1 and 2 don't match
 		if(!password.equals(confirmpassword))
 		{
 			session.setAttribute("error_message","your first and second password didn't match");
@@ -62,9 +61,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 		
 		String query = "insert into user values(?,?,?,?,?)";
-		
 
-//		System.out.println("1");
 		try {
 			PreparedStatement st = MyCon.getCon().prepareStatement(query);
 			st.setString(1, firstname);
@@ -73,35 +70,22 @@ public class RegisterServlet extends HttpServlet {
 			st.setString(4, email);
 			st.setString(5, password);
 			
-			int rowcount = st.executeUpdate();
-			
-//			if(!(rowcount > 0))
-//			{
-//				session.setAttribute("error_message","you already registred with this email");
-//				this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);		
-//				return;
-//			}
-//
-//			this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
+			st.executeUpdate();
 
-//			System.out.println("2");
-			
+			// if the query executed
+			session.setAttribute("error_message","you have registered succefully!");
+			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
+			return;
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// if the query failed to execute it mean that we tried to insert an existed email
 			session.setAttribute("error_message","you already registred with this email");
-			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);		
+			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
 			return;
+//			e.printStackTrace();
 		}
-//		this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
 
-		session.setAttribute("error_message","you have registered succefuly!");
-		this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
-//		System.out.println("3");
-//		doGet(request, response);
 	}
 
 }
