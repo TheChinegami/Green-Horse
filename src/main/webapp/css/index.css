@@ -27,9 +27,7 @@ nav {
 }
 
 #list-menu {
-    /* justify-content: center; */
     align-items: center;
-    padding: 27px;
 }
 
 .list-menu-item {
@@ -40,6 +38,7 @@ nav {
 .list-menu-item-link {
     font-size: 20px;
     margin: 0 30px 0 0;
+    line-height: 4;
 }
 
 .list-menu-item-link:hover {
@@ -81,6 +80,8 @@ body{
 #content-button-link:hover {
     color:#000;
     background-color: #fff;
+    /* background-color: rgba(0, 0, 0, 0);
+    border: 2px #fff solid; */
     /* border: solid #000 2px; */
 }
 
