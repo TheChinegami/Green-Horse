@@ -6,12 +6,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.Category;
+import models.Product;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import dao.CategoryDao;
+import dao.ProductDao;
 import functional.MyCon;
 
 /**
@@ -71,6 +76,7 @@ public class LoginServlet extends HttpServlet {
 				return;
 			} 
 
+			
 			// if the email and password both correct
 			this.getServletContext().getRequestDispatcher("/MainPage").forward(request, response);
 			return;
@@ -81,5 +87,6 @@ public class LoginServlet extends HttpServlet {
 		}		
 		
 	}
+	
 
 }

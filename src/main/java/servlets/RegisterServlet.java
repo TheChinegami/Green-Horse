@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
 			return;
 		}
 		
-		String query = "insert into user values(?,?,?,?,?)";
+		String query = "insert into user(firstname,lastname,displayname,email,password) values(?,?,?,?,?)";
 
 		try {
 			PreparedStatement st = MyCon.getCon().prepareStatement(query);

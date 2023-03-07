@@ -11,7 +11,7 @@ public class MyCon {
 	private MyCon() throws ClassNotFoundException, SQLException
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytest","root","root");
+		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/green_horse","root","root");
 	}
 	
 	public static Connection getCon() throws ClassNotFoundException, SQLException
