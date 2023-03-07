@@ -9,16 +9,19 @@
     <title>Dashbord</title>
 </head>
 <body>
+
    <%@ include file="/jsp/header.jsp" %>
    
+    
     <section id="content" style="background-image: url('images/space.png');">
         <div id="content-txt">Welcome to Green Horse <br>
             your best place to get customer reviews</div>
         <div id="content-button">
-            <a id="content-button-link" href="#">try now</a>
+            <a id="content-button-link" href="${pageContext.request.contextPath}/MainPage">try now</a>
         </div>
     </section>
-    
+
     <%@ include file="/jsp/footer.jsp" %>
+
 </body>
 </html>

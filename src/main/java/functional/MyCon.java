@@ -12,6 +12,7 @@ public class MyCon {
 	{
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/green_horse","root","chanigui");
+
 	}
 	
 	public static Connection getCon() throws ClassNotFoundException, SQLException
