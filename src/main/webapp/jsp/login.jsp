@@ -3,6 +3,11 @@
 
 <%
     String errorMessage = "";
+	if(session.getAttribute("error_message_register")!=null)
+	{
+		errorMessage=(String)session.getAttribute("error_message_register");
+		session.removeAttribute("error_message_register");
+	}
     if(session.getAttribute("error_message")!=null)
     {
         errorMessage = (String)session.getAttribute("error_message");

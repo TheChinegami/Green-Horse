@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,13 @@
     <style type="text/css">
     	
     </style>
+    <%@include file="/jsp/header.jsp" %>
 </head>
 <body>
+	
     login succefully!
+    <c:out value="it's going very smooth you pile of shit"/>
+    
+    <%@include file="/jsp/footer.jsp" %>
 </body>
 </html>

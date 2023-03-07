@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
 			return;
 		}
 		
-		String query = "insert into user values(?,?,?,?,?)";
+		String query = "insert into user (firstname,lastname,displayname,email,password) values(?,?,?,?,?)";
 
 		try {
 			PreparedStatement st = MyCon.getCon().prepareStatement(query);
@@ -73,7 +73,7 @@ public class RegisterServlet extends HttpServlet {
 			st.executeUpdate();
 
 			// if the query executed
-			session.setAttribute("error_message","you have registered succefully!");
+			session.setAttribute("error_message_successfully","you have registered succefully!");
 			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
 			return;
 		} catch (ClassNotFoundException e) {
