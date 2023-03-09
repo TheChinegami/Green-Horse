@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<%@ page import="java.util.ArrayList,models.Category,models.Product" %>
+<%@ page import="java.util.ArrayList,models.Category,models.Product,functional.RateIconsGenerator" %>
 
 <%
 	ArrayList<Product> plist = (ArrayList<Product>)session.getAttribute("products");
@@ -50,69 +50,27 @@
         </aside>
         
         <div id="content">
-        	<c:forEach items="${products}" var="item">
+        	<%
+        		for(Product item:plist){
+        	%>
 				<section class="section">
 			        <div class="section-image-container">
-			            <img class="section-item-img" src="${pageContext.request.contextPath}/product-img/${item.getPhoto()}" alt="">
+			            <img class="section-item-img" src="${pageContext.request.contextPath}/product-img/<%out.print(item.getPhoto());%>" alt="">
 			        </div>
 			        <div class="section-content">
 			            <div class="section-content-title">
-			            	<c:out value="${item.getTitle()}"/>
+			            	<%out.print(item.getTitle());%>
 			            </div>
 			            <div class="section-content-price">
-			            	
-			            	<c:out value="${item.getMinPrice()}$ - ${item.getMaxPrice()}$"/>
+			            	<%out.print(item.getMinPrice()+"$ - "+item.getMaxPrice()+"$");%>
 			            </div>
 			            <div class="section-content-stars">
-			            
-			            <c:choose>
-			            	<c:when test="${item.getRate() < 1 }">
-			            		<i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-			            	</c:when>
-			            	<c:when test="${item.getRate() < 2 }">
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-			            	</c:when>
-			            	<c:when test="${item.getRate() < 3 }">
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-			            	</c:when>
-			            	<c:when test="${item.getRate() < 4 }">
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-			            	</c:when>
-			            	<c:when test="${item.getRate() < 5 }">
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-regular fa-star"></i>
-			            	</c:when>
-			            	<c:otherwise>
-			            		<i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-				                <i class="fa-solid fa-star"></i>
-			            	</c:otherwise>
-			            </c:choose>
-		
+			           		<%
+			           			out.println(RateIconsGenerator.getStars(item.getRate()));
+			           		%>		
 			            </div>
 			            <div class="section-content-rating">
-			            	<c:out value="${item.getRate()}"/>
+			            	<%out.print(item.getRate());%>
 						</div>
 			            <div class="section-content-link-container">
 			                <a class="section-content-link" href="#">see more
@@ -121,8 +79,12 @@
 			            </div>
 			        </div>
 			    </section>
-	            <div class="section-divider"></div>
-			</c:forEach>
+	            <div class="section-divider"></div> 
+	            
+            <%
+            	} 
+            %>
+			
 			<div id="content-footer">
 				<a class="content-footer-pages" href="#">1</a>
 				<a class="content-footer-pages" href="#">2</a>

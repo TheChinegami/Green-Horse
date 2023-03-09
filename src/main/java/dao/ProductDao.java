@@ -15,7 +15,7 @@ public class ProductDao {
 	
 	public ArrayList<Product> getProducts() throws ClassNotFoundException, SQLException 
 	{
-		ArrayList<Product> list = new ArrayList();
+		ArrayList<Product> list = new ArrayList<Product>();
 		st = MyCon.getCon().prepareStatement("select * from product");
 		rs = st.executeQuery();
 		Product p;
