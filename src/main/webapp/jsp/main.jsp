@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/aa5956fb58.js" crossorigin="anonymous"></script>
 </head>
 <body>
+	<!--
     <header id="header">
         <nav id="navigator">
             <a href="/Green-Horse"><img id="logo" src="images\logo.png"/></a>
@@ -33,6 +34,7 @@
             </ul>
         </nav>
     </header>
+    -->
     <div id="page-container">
         <aside id="aside">
             <div id="aside-title">
@@ -120,10 +122,12 @@
         
     </div>
     
+    <!-- 
     <footer id="footer">
         <div id="footer-img-container"><a href="#"><img id="footer-img" src="images\logo.png"/></a></div>
         <div id="footer-text">2022-2023 Green House | All Rights Reserved.</div>
     </footer>
+     -->
 </body>
 </html>
         
