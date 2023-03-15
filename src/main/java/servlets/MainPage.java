@@ -50,7 +50,6 @@ public class MainPage extends HttpServlet {
 			}
 			categoriesLoad(session);
 			productsLoad(session);
-			
 			this.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) 
 		{

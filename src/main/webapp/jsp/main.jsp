@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <title>main page</title>
     <style type="text/css">
-	<%@ include file="../css/main.css"%> 
+/*	<%@ include file="../css/main.css"%> */
     </style>
     <script src="https://kit.fontawesome.com/aa5956fb58.js" crossorigin="anonymous"></script>
 </head>
