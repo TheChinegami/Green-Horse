@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import models.Category;
 import models.Product;
+import models.User;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -76,8 +77,17 @@ public class LoginServlet extends HttpServlet {
 				return;
 			} 
 
-			
+			User user = new User() ;
 			// if the email and password both correct
+				user.setId(rs.getLong(1));
+				user.setEmail(rs.getNString(2));
+				user.setPassword(rs.getNString(3));
+				user.setFirstName(rs.getNString(4));
+				user.setLastName(rs.getNString(5));
+				user.setDisplayName(rs.getNString(6));
+				user.setPhoto(rs.getNString(7));
+			
+			session.setAttribute("current_user",user);
 			this.getServletContext().getRequestDispatcher("/MainPage").forward(request, response);
 			return;
 		} catch (ClassNotFoundException e) {

@@ -1,4 +1,5 @@
-<%@ import = "java.util.ArrayList" %>
+<%@ page import ="java.util.ArrayList" %>
+
 <%
 	ArrayList<Product> plist = (ArrayList<Product>)session.getAttribute("products");
 %>
@@ -20,23 +21,6 @@
     <%@include file="/jsp/header.jsp" %>
 </head>
 <body>
-	
-    login succefully!
-    <c:out value="it's going very smooth you pile of shit"/>
-    
-    
-    <script src="https://kit.fontawesome.com/aa5956fb58.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <header id="header">
-        <nav id="navigator">
-            <a href="/Green-Horse"><img id="logo" src="images\logo.png"/></a>
-            <ul id="list-menu">
-                <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LoginPage">log in</a></li>
-                <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/RegisterPage">register</a></li>
-            </ul>
-        </nav>
-    </header>
     <div id="page-container">
         <aside id="aside">
             <div id="aside-title">
