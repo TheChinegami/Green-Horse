@@ -6,11 +6,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.User;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import dao.UserDao;
 import functional.MyCon;
 
 /**
@@ -41,6 +43,8 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstname,lastname,displayname,email,password,confirmpassword;
+		User user = new User();
+		UserDao userDao = new UserDao();
 		
 		HttpSession session = request.getSession();
 		
@@ -52,39 +56,34 @@ public class RegisterServlet extends HttpServlet {
 		password = request.getParameter("password");
 		confirmpassword = request.getParameter("confirmpassword");
 		
-		// if the password 1 and 2 don't match
+		// if the password 1 and 2 didn't match
 		if(!password.equals(confirmpassword))
 		{
-			session.setAttribute("error_message","your first and second password didn't match");
+			session.setAttribute("message","password_error");
 			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);		
 			return;
 		}
 		
-		String query = "insert into user (firstname,lastname,displayname,email,password) values(?,?,?,?,?)";
-
 
 		try {
-			PreparedStatement st = MyCon.getCon().prepareStatement(query);
-			st.setString(1, firstname);
-			st.setString(2, lastname);
-			st.setString(3, displayname);
-			st.setString(4, email);
-			st.setString(5, password);
-			
-			st.executeUpdate();
-
-			// if the query executed
-			session.setAttribute("error_message_successfully","you have registered succefully!");
-			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
-			return;
+			// if the user already have an account
+			if(userDao.isUserExists(email)) {
+				session.setAttribute("message","email_error");
+				this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
+			}else {
+				user.setFirstName(firstname);
+				user.setLastName(lastname);
+				user.setDisplayName(displayname);
+				user.setEmail(email);
+				user.setPassword(confirmpassword);
+				userDao.insertUser(user);
+				session.setAttribute("message","register_success");
+				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// if the query failed to execute it mean that we tried to insert an existed email
-			session.setAttribute("error_message","you already registred with this email");
-			this.getServletContext().getRequestDispatcher("/RegisterPage").forward(request, response);
-			return;
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
 
 	}

@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import models.Category;
 import models.Product;
+import models.User;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -37,15 +38,22 @@ public class MainPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		try 
+		try
 		{
 			HttpSession session = request.getSession();
+			if(session.getAttribute("current_user")==null)
+			{
+				User user = new User();
+				user.setId(0);
+				user.setPhoto("0.jpg");
+				session.setAttribute("current_user",user);
+			}
 			categoriesLoad(session);
 			productsLoad(session);
+			
 			this.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) 
 		{
-			
 			e.printStackTrace();
 		}
 	}

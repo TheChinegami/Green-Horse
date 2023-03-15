@@ -19,7 +19,7 @@
 <%  String FN =  ((User)session.getAttribute("current_user")).getFirstName() ;
 	String LN =  ((User)session.getAttribute("current_user")).getLastName() ;
 	String DN =  ((User)session.getAttribute("current_user")).getDisplayName() ;
-	Long Id =  ((User)session.getAttribute("current_user")).getId() ;
+	int Id =  ((User)session.getAttribute("current_user")).getId() ;
 	String Password =  ((User)session.getAttribute("current_user")).getPassword() ;
 	String email =  ((User)session.getAttribute("current_user")).getEmail() ;%>
 

@@ -71,7 +71,7 @@ public class ProfileServlet extends HttpServlet {
 		if(newpassword.isBlank()) {
 			
 			
-			String query = "update user set firstname = ? ,lastname = ? ,displayname = ? where email= ?";
+			String query = "update user set user_firstname = ? ,user_lastname = ? ,user_displayname = ? where user_email= ?";
 
 				
 				
@@ -124,7 +124,7 @@ public class ProfileServlet extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);		
 			return;
 		}
-			String query = "update user set firstname = ? ,lastname = ? ,displayname = ? ,password = ? where email = ?";
+			String query = "update user set user_firstname = ? ,user_lastname = ? ,user_displayname = ? ,user_password = ? where user_email = ?";
 
 
 			try {

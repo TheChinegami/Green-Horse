@@ -1,10 +1,12 @@
 package servlets;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import models.User;
+
 import java.io.IOException;
 
 /**
@@ -26,6 +28,11 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		 
+//		HttpSession session = request.getSession();
+//		User user = new User();
+//		user.setId(0);
+//		session.setAttribute("current_user", user);
 		this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 

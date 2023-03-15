@@ -1,0 +1,381 @@
+body,* {
+    margin:0;
+    padding: 0;
+    font-family: "urbanist";
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+#header {
+    /* position: fixed;
+    left: 0px;
+    top: 0px; */
+    color: black;
+    width: 100%;
+    background-color: #fff;
+    height: 80px;
+    overflow: hidden;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#navigator {
+    
+    justify-content: space-between;
+    display: flex;
+    width: 1100px;
+    margin:auto;
+}
+
+#logo {
+    height: 60px;
+    padding: 10px;
+    background-color: white;
+}
+
+#list-menu {
+    align-items: center;
+}
+
+.list-menu-item {
+    list-style: none;
+    display: inline;
+}
+
+.list-menu-item-link {
+    font-size: 20px;
+    margin: 0 30px 0 0;
+    line-height: 4;
+}
+
+.list-menu-item-link:hover {
+    color: #1DB954;
+}
+
+/* ########################## content ########################## */
+
+#page-container {
+    background: #e1ffc1;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 1100px;
+    margin: 20px auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-divider {
+    height: 1px;
+    width: 97%;
+    margin: 0 auto;
+    background-color: #000;
+}
+
+
+#product {
+    /* background-color: #fab8b8; */
+    display: flex;
+    flex-direction: row;
+}
+
+#product-image-container {
+    padding: 15px 0  15px 15px;
+    height: 250px;
+    width: 250px;
+    min-width: 250px;
+    display: inline-block;
+    /* background-color: #1DB954; */
+}
+
+#product-image {
+    border-radius: 13px;
+    border: 1px solid #d6d6d6;
+    
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#product-information {
+    display: inline-block;
+
+}
+
+#product-information-title {
+    
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    -webkit-line-clamp: 3;
+    /* height: 75px; */
+    font-size: 34px;
+    padding: 15px 15px 0 15px;
+    color: #333333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#product-information-price {
+    font-family: 'urbanist';
+    font-weight: 500;
+    font-size: 30px;
+    color: #666666;
+    padding: 8px 15px 0 15px;
+    display: block;
+}
+
+#product-information-rate {
+    font-family: 'urbanist';
+    font-weight: 500;
+    font-size: 30px;
+    color: #666666;
+    padding: 8px 10px 0 10px;
+    display: inline-block;
+
+}
+
+#product-information-stars {
+    display: inline-block;
+    color: #1DB954;
+    font-size: 30px;
+    padding: 8px 0 0px 15px;
+}
+
+#product-information-category {
+    font-family: 'urbanist';
+    font-weight: 500;
+    font-size: 30px;
+    color: #1DB954;
+    padding: 8px 15px 0 15px;
+    display: block;
+}
+
+
+
+#description-title {
+    font-family: 'urbanist';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 15px 15px 0 15px;
+    color: #333333;
+}
+
+#description-text {
+    
+    font-family: 'urbanist';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 15px 15px 15px 15px;
+    color: #333333;
+}
+
+#custom-review {
+    color: #868686;
+    font-weight: 500;
+    background-color: #e1ffc1;
+    border-radius: 13px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.246);
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    margin: 30px auto;
+}
+
+#custom-review:hover {
+    color: #333;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.631);
+}
+
+/* #custom-review:hover > #custom-review-image-container {
+    border-color: #1DB954;
+} */
+
+#custom-review-image-container {
+    margin: 10px 0  10px 10px;
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    border-radius: 40px;
+    border: 1px solid #868686;
+    overflow: hidden;
+}
+
+#custom-review-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#custom-review-text {
+    margin: auto 15px;
+}
+
+#reviews-title {
+    font-family: 'urbanist';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 15px 15px 0 15px;
+    color: #333333;
+}
+
+#review-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.review {
+    /* background-color: #666666; */
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.review-votebox {
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.review-votebox-icon {
+    color: #292d32;
+    font-size: 40px;
+
+}
+
+.review-votebox-icon:hover {
+    color: #1DB954;
+
+}
+
+.review-votebox-number {
+    color: #292d32;
+    font-weight: 500;
+    text-align: center;
+    font-size: 22px;
+    max-width: 30px;
+}
+
+.review-commentbox {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 13px;
+    border: 1px solid #868686;
+    display: flex;
+    flex-direction: row;
+}
+
+.review-commentbox-left {
+    background-image: #333;
+    display: flex;
+    flex-direction: row;
+}
+
+.review-commentbox-left-img-container {
+    
+    margin: 15px 0  15px 15px;
+    height: 70px;
+    width: 70px;
+    min-width: 70px;
+    max-height: 70px;
+    display: inline-block;
+    border-radius: 70px;
+    border: 1px solid #868686;
+    overflow: hidden;
+}
+
+.review-commentbox-left-img {
+    
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.review-commentbox-divider {
+    margin: 15px 0;
+    width: 1px;
+    background-color: #868686;
+}
+
+.review-commentbox-center {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.review-commentbox-center-name {
+    margin: 15px 0 0 15px;
+    color: #292d32;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.review-commentbox-center-rate {
+    margin: 10px 0 10px 15px;
+    color: #292d32;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.review-commentbox-center-stars {
+    color: #1DB954;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.review-commentbox-right-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-commentbox-right-title {
+    margin: 15px 0 0 15px;
+    color: #292d32;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.review-commentbox-right-comment {
+    margin: 10px 15px 15px 15px;
+    color: #292d32;
+    font-size: 18px;
+    font-weight: 400;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+/* ########################## footer ########################## */
+
+#footer{
+    width: 100%;
+    clear: both;
+    background-color: #ffffff;
+}
+
+#footer-img-container {
+    text-align: center;
+}
+
+#footer-img {
+    width: 500px;
+}
+
+#footer-text {
+    text-align: center;
+    color: #000;
+    padding: 10px;
+}

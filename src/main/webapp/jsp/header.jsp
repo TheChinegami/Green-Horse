@@ -13,7 +13,7 @@
 
 <c:choose>
 
-	<c:when test="${ empty current_user }">
+	<c:when test="${ current_user.getId() == 0 }">
 	
 	 <nav>
 	
