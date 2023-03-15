@@ -57,7 +57,7 @@
         	%>
 				<section class="section">
 			        <div class="section-image-container">
-			            <img class="section-item-img" src="${pageContext.request.contextPath}/product-img/<%out.print(item.getPhoto());%>" alt="">
+			            <img class="section-item-img" src="${pageContext.request.contextPath}/products-images/<%out.print(item.getPhoto());%>" alt="">
 			        </div>
 			        <div class="section-content">
 			            <div class="section-content-title">
@@ -75,7 +75,7 @@
 			            	<%out.print(item.getRate());%>
 						</div>
 			            <div class="section-content-link-container">
-			                <a class="section-content-link" href="#">see more
+			                <a class="section-content-link" href="${pageContext.request.contextPath}/ProductDetailsPage?id=<%out.print(item.getId());%>">see more
 			                    <i class="fa-solid fa-circle-right section-content-link-icon"></i>
 			                </a>
 			            </div>

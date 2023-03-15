@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 
 <%
-    String errorMessage = "";
-    if(session.getAttribute("error_message")!=null)
+    String message = "";
+    if(session.getAttribute("message")!=null)
     {
-        errorMessage = (String)session.getAttribute("error_message");
-        session.removeAttribute("error_message");
+        message = (String)session.getAttribute("message");
+        session.removeAttribute("message");
     }
 %>
 <!DOCTYPE html>
@@ -15,7 +15,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">	
+   	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">	
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>register</title>
     <style>
     	
@@ -40,13 +41,27 @@
                 <input class="form-input" type="password" required placeholder="Enter 6 caracters or more" name="confirmpassword"/>
                 <input id="form-button" type="submit" value="Register">
                 <div id="form-message">If you have registered before please go to <a id="form-login-link" href="${pageContext.request.contextPath}/LoginPage">login</a> page.</div>
-                <div id="form-error-message">
-                    <%
-                    out.print(errorMessage);
-                    %>
-                </div>
+                <input id="form-error-message" type="hidden" value="<% out.print(message);%>"/>
             </form>
         </div>
     </div>
+    <script>
+    	var message = document.getElementById('form-error-message').value;
+		 
+    	if(message === 'email_error'){
+    		Swal.fire({
+	   			icon: 'error',
+	   			title: 'you already registered with this email',
+                confirmButtonColor: '#87adbd',
+	   		})
+    		
+    	}else if(message === 'password_error') {
+    		Swal.fire({
+	   			icon: 'error',
+	   			title: 'your first and second password didn\'t match',
+                confirmButtonColor: '#87adbd',
+	   		})
+    	}
+    </script>
 </body>
 </html>

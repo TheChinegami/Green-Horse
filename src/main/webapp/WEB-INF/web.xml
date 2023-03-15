@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
   <display-name>MyTestApp</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -98,5 +98,55 @@
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/UploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductDetailsPage</display-name>
+    <servlet-name>ProductDetailsPage</servlet-name>
+    <servlet-class>servlets.ProductDetailsPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductDetailsPage</servlet-name>
+    <url-pattern>/ProductDetailsPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewProductPage</display-name>
+    <servlet-name>ReviewProductPage</servlet-name>
+    <servlet-class>servlets.ReviewProductPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewProductPage</servlet-name>
+    <url-pattern>/ReviewProductPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewProductServlet</display-name>
+    <servlet-name>ReviewProductServlet</servlet-name>
+    <servlet-class>servlets.ReviewProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewProductServlet</servlet-name>
+    <url-pattern>/ReviewProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewProductSuccesPage</display-name>
+    <servlet-name>ReviewProductSuccesPage</servlet-name>
+    <servlet-class>servlets.ReviewProductSuccesPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewProductSuccesPage</servlet-name>
+    <url-pattern>/ReviewProductSuccesPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VoteServlet</display-name>
+    <servlet-name>VoteServlet</servlet-name>
+    <servlet-class>servlets.VoteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VoteServlet</servlet-name>
+    <url-pattern>/VoteServlet</url-pattern>
   </servlet-mapping>
 </web-app>

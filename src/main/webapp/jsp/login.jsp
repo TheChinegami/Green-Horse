@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 
 <%
-    String errorMessage = "";
-    if(session.getAttribute("error_message")!=null)
+    String message = "";
+    if(session.getAttribute("message")!=null)
     {
-        errorMessage = (String)session.getAttribute("error_message");
-        session.removeAttribute("error_message");
+        message = (String)session.getAttribute("message");
+        session.removeAttribute("message");
     }
 %>
 <!DOCTYPE html>
@@ -17,8 +17,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
     <title>Log in</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        
+		
     </style>
 </head>
 <body>
@@ -32,13 +33,33 @@
                 <input class="form-input" type="password" placeholder="Enter 6 caracters or more" required name="password"/>
                 <input id="form-button" type="submit" value="Log in" name="login"/>
                 <label id="form-message" for="">If you don't have an account please <a id="form-login-link" href="/Green-Horse/RegisterPage">register</a> now.</label>
-                <div id="form-error-message">
-                    <%
-                    out.print(errorMessage);
-                    %>
-                </div>
+                <input id="form-error-message" type="hidden" value="<% out.print(message);%>"/>
             </form>
         </div>
     </div>
+    <script>
+    	var message = document.getElementById('form-error-message').value;
+		 
+    	if(message === 'email_error'){
+    		Swal.fire({
+	   			icon: 'error',
+	   			title: 'this account is not exist',
+                confirmButtonColor: '#87adbd',
+	   		})
+    		
+    	}else if(message === 'password_error') {
+    		Swal.fire({
+	   			icon: 'error',
+	   			title: 'password uncorrect',
+                confirmButtonColor: '#87adbd',
+	   		})
+    	}else if(message === 'register_success') {
+    		Swal.fire({
+	   			icon: 'success',
+	   			title: 'you have registered successfully',
+                confirmButtonColor: '#87adbd',
+	   		})
+    	}
+    </script>
 </body>
 </html>

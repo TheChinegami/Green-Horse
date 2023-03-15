@@ -1,8 +1,10 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Product {
 
-	private long id;
+	private int id;
 	private String title;
 	private String description;
 	private double minPrice;
@@ -11,11 +13,12 @@ public class Product {
 	private String category;
 	private float rate;
 	private User user;
+	private ArrayList<Review> reviews;
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
@@ -66,5 +69,12 @@ public class Product {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public ArrayList<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(ArrayList<Review> reviews) {
+		this.reviews = reviews;
+	}
+	
 	
 }
