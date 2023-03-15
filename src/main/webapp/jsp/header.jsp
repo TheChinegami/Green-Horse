@@ -19,8 +19,8 @@
 	
         <a href="/Green-Horse"><img id="logo" src="images\logo.png"/></a>
         <ul id="list-menu">
-            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LoginPage">log in</a></li>
-            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/RegisterPage">register</a></li>
+            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LoginPage">Log in</a></li>
+            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/RegisterPage">Register</a></li>
         </ul>
     </nav>
     
@@ -29,12 +29,20 @@
     <c:otherwise>
     
      <nav>
-        <a href="index.jsp"><img id="logo" src="images\logo.png"/></a>
-        <ul id="list-menu">
-            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/ProfilePage">Profile</a></li>
-            <li class="list-menu-item"><a class="list-menu-item-link" href="# ">Notifications</a></li>
-            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LogoutServlet">Log Out</a></li>
-        </ul>
+        <a href="${pageContext.request.contextPath}"><img id="logo" src="images\logo.png"/></a>
+        <div id="menu-container">
+           	<div id="profile-image-container">
+                <img id="profile-image" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt="">
+            </div>
+	        <ul id="list-menu">
+	        	
+	            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/ProfilePage">
+	            	Profile
+	            </a></li>
+	            <li class="list-menu-item"><a class="list-menu-item-link" href="# ">Notifications</a></li>
+	            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LogoutServlet">Log Out</a></li>
+	        </ul>
+        </div>
     </nav>
     
     </c:otherwise>
