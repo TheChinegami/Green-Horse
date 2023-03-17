@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 
 <% 
 	int success = Integer.parseInt((String)request.getParameter("success"));
+	String message = (String)request.getParameter("message");
 	int product = Integer.parseInt((String)request.getParameter("product_id"));
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,12 +24,15 @@
 </head>
 <body>
 	<input id="success" type="hidden" value="<%out.print(success);%>"/>
+	<input id="message" type="hidden" value="<%out.print(message);%>"/>
 	<input id="product" type="hidden" value="<%out.print(product);%>"/>
 	<script type="text/javascript">
 		var successVar = document.getElementById('success');
+		var messageVar = document.getElementById('message');
 		var productVar = document.getElementById('product');
 		
 		var success = parseInt(successVar.value);
+		var message = messageVar.value;
 		var product = parseInt(productVar.value);
 		
 		setTimeout(callBack_func, 3000);
@@ -38,14 +40,14 @@
 		if(success === 1) {
 			Swal.fire({
        			icon: 'success',
-       			title: 'Thank you for sharing your review',
+       			title: message,
        			showConfirmButton: false,
        			timer: 5500
        		})
 		} else {
 			Swal.fire({
        			icon: 'warning',
-       			title: 'You have already shared your review',
+       			title: message,
        			showConfirmButton: false,
        			timer: 5500
        		})
@@ -54,6 +56,6 @@
 		function callBack_func() {
        		window.location.replace("http://localhost:8080/Green-Horse/ProductDetailsPage?id="+product);
 		}
-	</script>
+	</script>	
 </body>
 </html>

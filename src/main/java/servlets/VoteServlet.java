@@ -45,6 +45,7 @@ public class VoteServlet extends HttpServlet {
 		
 		String decisionString = (decision==1) ? "up" : "down";
 		boolean voteBefore = false;
+		String message = "";
 		
 		if(userId == 0) {
 			this.getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(request, response);
@@ -63,8 +64,9 @@ public class VoteServlet extends HttpServlet {
 			if(vote.getUser().getId() == userId) {
 				voteBefore = true;
 				if(vote.getDecision() == decision) {
-					this.getServletContext().getRequestDispatcher("/ProductDetailsPage?id="+productId).forward(request, response);
-					System.out.println("you already voted "+decisionString+" to this review");
+					message = "you already voted "+decisionString+" to this review";
+//					System.out.println(message);
+					this.getServletContext().getRequestDispatcher("/jsp/review-vote-success.jsp?product_id="+productId+"&success=0&message="+message).forward(request, response);
 					return;
 				}				
 			}
@@ -73,12 +75,14 @@ public class VoteServlet extends HttpServlet {
 		try {
 			if(voteBefore) {
 				voteDao.updateVote(userId,reviewId,decision);
-				System.out.println("you updated your vote successfully");
+				message = "you updated your vote successfully";
+//				System.out.println(message);
 			}else {
 				voteDao.insertVote(userId,reviewId,decision);
-				System.out.println("you add new vote successfully");
+				message = "you added a new vote successfully";
+//				System.out.println(message);
 			}
-			this.getServletContext().getRequestDispatcher("/ProductDetailsPage?id="+productId).forward(request, response);
+			this.getServletContext().getRequestDispatcher("/jsp/review-vote-success.jsp?product_id="+productId+"&success=1&message="+message).forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
