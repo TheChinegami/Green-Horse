@@ -33,9 +33,9 @@
         
 	        <div id="search-box">
 	            <input id="search-input" type="text" placeholder="search"/>
-	            <a id="search-icon-link" href="#">
+	            <span id="search-icon-link">
 	                <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
-	            </a>
+	            </span>
 	        </div>
         
         </c:if>

@@ -3,7 +3,7 @@
 
 <% 
 	int success = Integer.parseInt((String)request.getParameter("success"));
-	int productId = Integer.parseInt((String)request.getParameter("product_id"));
+	int product = Integer.parseInt((String)request.getParameter("product_id"));
 %>
 
 <!DOCTYPE html>
@@ -25,10 +25,10 @@
 </head>
 <body>
 	<input id="success" type="hidden" value="<%out.print(success);%>"/>
-	<input id="product_id" type="hidden" value="<%out.print(productId);%>"/>
+	<input id="product" type="hidden" value="<%out.print(product);%>"/>
 	<script type="text/javascript">
 		var successVar = document.getElementById('success');
-		var productVar = document.getElementById('product_id');
+		var productVar = document.getElementById('product');
 		
 		var success = parseInt(successVar.value);
 		var product = parseInt(productVar.value);

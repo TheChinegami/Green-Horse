@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
-
   <display-name>MyTestApp</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -135,7 +134,7 @@
   <servlet-mapping>
     <servlet-name>ProfilePage</servlet-name>
     <url-pattern>/ProfilePage</url-pattern>
-	</servlet-mapping>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ProductDetailsPage</display-name>
@@ -185,5 +184,35 @@
   <servlet-mapping>
     <servlet-name>VoteServlet</servlet-name>
     <url-pattern>/VoteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TempServlet</display-name>
+    <servlet-name>TempServlet</servlet-name>
+    <servlet-class>servlets.TempServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TempServlet</servlet-name>
+    <url-pattern>/TempServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>servlets.SearchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/SearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PartitioningServlet</display-name>
+    <servlet-name>PartitioningServlet</servlet-name>
+    <servlet-class>servlets.PartitioningServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PartitioningServlet</servlet-name>
+    <url-pattern>/PartitioningServlet</url-pattern>
   </servlet-mapping>
 </web-app>
