@@ -156,6 +156,16 @@
     <servlet-name>ReviewProductPage</servlet-name>
     <url-pattern>/ReviewProductPage</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>MainPage</display-name>
+    <servlet-name>MainPage</servlet-name>
+    <servlet-class>servlets.MainPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainPage</servlet-name>
+    <url-pattern>/MainPage</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ReviewProductServlet</display-name>
