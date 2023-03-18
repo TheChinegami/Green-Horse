@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <title>main page</title>
     <style type="text/css">
-	<%@ include file="../css/main.css"%> 
+/*	<%@ include file="../css/main.css"%> */
     </style>
     <script src="https://kit.fontawesome.com/aa5956fb58.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 </head>
 <body>
     <%@include file="/jsp/header.jsp" %>
@@ -33,19 +34,21 @@
                 Categories
             </div>
             <c:forEach items="${categories}" var="item">
-				<a class="aside-item-link" href="#">
+				<div class="aside-item-link">
 	                <div class="aside-item-icon">
 	                    <i class="fa-solid ${item.getIcon()}"></i>
 	                </div>
 	                <c:out value="${item.getName()}"/>
-	            </a>
+	                <input class="inputtt" type="hidden" value="${item.getId()}"/>
+	            </div>
 			</c:forEach>
-            
+            <div id="aside-footer-distance"></div>
         </aside>
         
-        <div id="content">
+        <div id="content-container">
+        	<!-- <div id="content">
         	<%
-        		for(Product item:plist){
+        		/*for(Product item:plist){
         	%>
 				<section class="section">
 			        <div class="section-image-container">
@@ -74,48 +77,62 @@
 			        </div>
 			    </section>
 	            <div class="section-divider"></div> 
-	            
             <%
-            	} 
+            	} */
             %>
-			
-			<div id="content-footer">
-				<a class="content-footer-pages" href="#">1</a>
-				<a class="content-footer-pages" href="#">2</a>
-				<a class="content-footer-pages" href="#">3</a>
-				<a class="content-footer-pages" href="#">4</a>
-				<a class="content-footer-pages" href="#">5</a>
-				<a class="content-footer-pages" href="#">6</a>
-				<a class="content-footer-pages" href="#">7</a>
-				<a class="content-footer-pages" href="#">8</a>
-				<a class="content-footer-pages" href="#">9</a>
-				<a class="content-footer-pages" href="#">10</a>
-				<a class="content-footer-pages" href="#">11</a>
-				<a class="content-footer-pages" href="#">12</a>
-				<a class="content-footer-pages" href="#">13</a>
-				<a class="content-footer-pages" href="#">14</a>
-				<a class="content-footer-pages" href="#">15</a>
-				<a class="content-footer-pages" href="#">16</a>
-				<a class="content-footer-pages" href="#">17</a>
-				<a class="content-footer-pages" href="#">18</a>
-				<a class="content-footer-pages" href="#">19</a>
-				<a class="content-footer-pages" href="#">20</a>
-				<a class="content-footer-pages" href="#">21</a>
-				<a class="content-footer-pages" href="#">22</a>
-				<a class="content-footer-pages" href="#">23</a>
-				<a class="content-footer-pages" href="#">24</a>
-				<a class="content-footer-pages" href="#">25</a>
-				<a class="content-footer-pages" href="#">26</a>
-				<a class="content-footer-pages" href="#">27</a>
-				<a class="content-footer-pages" href="#">28</a>
-				<a class="content-footer-pages" href="#">29</a>
-			</div>
+            
+	        </div> -->
         </div>
         
     </div>
     
 <%@include file="/jsp/footer.jsp" %>
 
+<script type="text/javascript">
+
+
+	$.ajax({
+		type: "POST",
+		url: 'SearchServlet',
+		data: {search_method:'1',search_value:''},
+		success: function(response)
+		{
+			$('#content-container').html(response);
+		}
+	});
+
+	$(document).ready(function() {
+	    $('#search-icon-link').click(function(e) {
+			$('.aside-item-link').css('color','#5C5C5C');
+	        $.ajax({
+	            type: "POST",
+	            url: 'SearchServlet',
+	            data: {search_method:'1', search_value:$('#search-input').val()},
+	            success: function(response)
+	            {
+	                $('#content-container').html(response);
+	            }
+	       });
+	     });
+	});
+
+	$(document).ready(function() {
+    	$('.aside-item-link').click(function(e) {
+    		$('.aside-item-link').css('color','#5C5C5C');
+    		$(this).css('color','#1DB954');
+	        $.ajax({
+	            type: "POST",
+	            url: 'SearchServlet',
+	            data: {search_method:'2', search_value: $(this).find('.inputtt').val()},
+	            success: function(response)
+	            {
+	                $('#content-container').html(response);
+	           }
+	       });
+	     });
+    });
+        
+</script>
 </body>
 </html>
         

@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
 <title>Insert title here</title>
-<%@ include file="/jsp/header.jsp"  %>
 <%
     String errorMessage = "";
     if(session.getAttribute("error_message")!=null)
@@ -25,6 +24,7 @@
 
 </head>
 <body>
+<%@ include file="/jsp/header.jsp"  %>
 <div class="banner">
     <div class="leftside">
         <img class="profile_picture" src="images/profile.png" >

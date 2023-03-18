@@ -38,19 +38,21 @@ public class MainPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		
+		if(session.getAttribute("current_user")==null)
+		{
+			User user = new User();
+			user.setId(0);
+			user.setPhoto("0.jpg");
+			session.setAttribute("current_user",user);
+		}
+		
 		try
 		{
-			HttpSession session = request.getSession();
-			if(session.getAttribute("current_user")==null)
-			{
-				User user = new User();
-				user.setId(0);
-				user.setPhoto("0.jpg");
-				session.setAttribute("current_user",user);
-			}
 			categoriesLoad(session);
 			productsLoad(session);
-			
+			session.setAttribute("search_box", true);
 			this.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) 
 		{

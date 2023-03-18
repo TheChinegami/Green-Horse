@@ -8,7 +8,7 @@ a {
     text-decoration: none;
     color:black;
 }
-
+/*
 #header {
     color: black;
     width: 100%;
@@ -24,7 +24,7 @@ a {
     display: flex;
     width: 1100px;
     margin:auto;
-}
+}*/
 
 #logo {
     height: 60px;
@@ -90,6 +90,7 @@ a {
     font-size: 16px;
     padding: 5px;
     color: #5C5C5C;
+    cursor: pointer;
 }
 
 .aside-item-icon {
@@ -103,15 +104,23 @@ a {
     color: #1DB954;
 }
 
-#content {
-    background: #e1ffc1;
+#aside-footer-distance {
+	height: 500px;
+	width: 100%;
+}
+
+#content-container {
+	display: flex;
+	flex-direction: column;background: #e1ffc1;
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    /*height: 1800px;*/
-    height: fit-content;
     width: 70%;
     overflow: hidden;
+}
+
+#content {
+    
     display: flex;
     flex-direction: column;
 }
@@ -232,6 +241,7 @@ a {
     font-size: 18px;
     color: #5C5C5C;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .content-footer-pages:hover {

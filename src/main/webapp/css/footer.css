@@ -1,0 +1,28 @@
+body,* {
+    margin:0;
+    padding: 0;
+    font-family: "urbanist";
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+#footer{
+    background-color: #fff;
+}
+
+#footer-img-container {
+    text-align: center;
+}
+
+#footer-img {
+    width: 500px;
+}
+
+#footer-text {
+    text-align: center;
+    color: #000;
+    padding: 10px;
+}
