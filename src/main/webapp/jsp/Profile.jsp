@@ -27,7 +27,7 @@
 <%@ include file="/jsp/header.jsp"  %>
 <div class="banner">
     <div class="leftside">
-        <img class="profile_picture" src="images/profile.png" >
+        <img class="profile_picture" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt="">
         <p class="display_name"><% out.println(DN); %></p>
         <p class="full_name"><% out.println(FN +" " + LN); %></p>
     </div>
@@ -41,8 +41,9 @@
 </div>
 <div class="main">
     <form id="form" action="${pageContext.request.contextPath}/ProfileServlet" method="POST"> 
-        <img class="profile_picture_form" src="images/profile.png" >
-        <label class="form-title-profile-picture" for="profilepicture">Change Picture</label>
+        <label for ="filefield"><img class="profile_picture_form" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt=""></label>
+        <input type="file" id="filefield" name="file" accept="image/*" style="display :none">
+        <label class="form-title-profile-picture" for="profilepicture">Change picture</label>
         <label class="form-title" for="firstname">First name :</label>
         <input class="form-input" type="text" value= <c:out value = " ${ current_user.getFirstName() }" /> name="firstname" required/>
         <label class="form-title" for="lastname">Last name :</label>

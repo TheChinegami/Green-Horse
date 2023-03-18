@@ -3,7 +3,7 @@
 	
 	margin-right:30px;
 	margin-left:30px;
-	margin-top:10px;
+	margin-top:0px;
 	width : fill;
 	height : 200px ;
 	border: solid  ;
@@ -31,6 +31,7 @@
 .profile_picture{
 	width :120px;
 	border-radius : 60px;
+	border : 2px solid #000;
 	float: left;
 	margin-right: 10px ;
 	margin-left: 250px ; 
@@ -38,12 +39,16 @@
 }
 
 .profile_picture_form{
+	
+	border : 2px solid #000;
 	width :120px;
 	border-radius : 60px;
 	margin-right: 10px ;
 	margin-left: 42% ; 
+	cursor: pointer;
 
 }
+
 
 .display_name{
 	margin-top: 20px;
