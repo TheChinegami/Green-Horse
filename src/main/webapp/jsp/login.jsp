@@ -54,6 +54,12 @@
 	   			title: 'password uncorrect',
                 confirmButtonColor: '#87adbd',
 	   		})
+    	}else if(message === 'verification_error') {
+    		Swal.fire({
+	   			icon: 'error',
+	   			title: 'check your email to verify this account',
+                confirmButtonColor: '#87adbd',
+	   		})
     	}else if(message === 'register_success') {
     		Swal.fire({
 	   			icon: 'success',

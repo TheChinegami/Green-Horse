@@ -225,4 +225,14 @@
     <servlet-name>PartitioningServlet</servlet-name>
     <url-pattern>/PartitioningServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VerificationServlet</display-name>
+    <servlet-name>VerificationServlet</servlet-name>
+    <servlet-class>servlets.VerificationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VerificationServlet</servlet-name>
+    <url-pattern>/VerificationServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
