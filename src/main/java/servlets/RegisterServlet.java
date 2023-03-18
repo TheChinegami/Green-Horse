@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 import dao.UserDao;
 import functional.MyCon;
+import functional.SendMail;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -77,6 +78,11 @@ public class RegisterServlet extends HttpServlet {
 				user.setEmail(email);
 				user.setPassword(confirmpassword);
 				userDao.insertUser(user);
+				
+				User u = userDao.getUserByEmailAndPassword(email, confirmpassword);
+				String url = "http://localhost:8080/Green-Horse/VerificationServlet?id="+u.getId()+"&email="+u.getEmail();
+				SendMail.send(u.getEmail(),"Green Horse email verification",url);
+				
 				session.setAttribute("message","register_success");
 				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
 			}

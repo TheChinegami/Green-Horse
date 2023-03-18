@@ -41,6 +41,21 @@ public class UserDao {
 		return temp;
 	}
 	
+	public boolean getUserByIdAndEmail(int id, String email) throws ClassNotFoundException, SQLException 
+	{
+		boolean temp = false;
+		st = MyCon.getCon().prepareStatement("select * from user where user_id = ? and user_email = ?");
+		st.setInt(1, id);
+		st.setString(2, email);
+		rs = st.executeQuery();
+		if(rs.next())
+		{
+			temp = true;
+		}
+		close();
+		return temp;
+	}
+	
 	public User getUserByEmailAndPassword(String email, String password) throws ClassNotFoundException, SQLException 
 	{
 		User user = new User();
@@ -57,9 +72,19 @@ public class UserDao {
 			user.setLastName(rs.getString("user_lastname"));
 			user.setDisplayName(rs.getString("user_displayname"));
 			user.setPhoto(rs.getString("user_photo"));
+			user.setToken(rs.getInt("user_token"));
 		}
 		close();
 		return user;
+	}
+	
+	public void updatetUserToken(String email) throws ClassNotFoundException, SQLException 
+	{
+		String query = "UPDATE user SET user_token = 1 WHERE user_email = ?;";
+		st = MyCon.getCon().prepareStatement(query);
+		st.setString(1, email);
+		st.executeUpdate();
+		close();
 	}
 	
 	private void close() throws SQLException 

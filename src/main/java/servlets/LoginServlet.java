@@ -6,20 +6,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import models.Category;
-import models.Product;
 import models.User;
 
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
-import dao.CategoryDao;
-import dao.ProductDao;
 import dao.UserDao;
-import functional.MyCon;
 
 /**
  * Servlet implementation class LoginServlet
@@ -64,10 +55,20 @@ public class LoginServlet extends HttpServlet {
 				return;
 			}
 			
+//			userDao.updatetUserToken(email);
+			
 			currentUser = userDao.getUserByEmailAndPassword(email, password);
+			
 			if(currentUser.getEmail()==null) {
 				session.setAttribute("message","password_error");
 				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
+				return;
+			}
+			
+			if(currentUser.getToken()==0) {
+				session.setAttribute("message","verification_error");
+				this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
+				return;
 			}else {
 				// if the email and password both correct
 
