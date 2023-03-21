@@ -91,13 +91,13 @@
 	%>
             <div class="review">
                 <div class="review-votebox">
-                    <a class="review-votebox-icon" href="${pageContext.request.contextPath}/VoteServlet?product_id=<%out.print(p.getId()); %>&review_id=<%out.print(review.getReviewId());%>&decision=1" style="<%out.print(voteColorUp); %>">
+                    <a class="review-votebox-icon" href="${pageContext.request.contextPath}/VoteServlet?product_id=<%out.print(p.getId()); %>&review_id=<%out.print(review.getReviewId());%>&email_owner=<%out.print(review.getUser().getEmail()); %>&decision=1" style="<%out.print(voteColorUp); %>">
                         <i class="fa-solid fa-square-caret-up"></i>
                     </a>
                     <div class="review-votebox-number">
                         <% out.print(review.getVote()); %>
                     </div>
-                    <a class="review-votebox-icon" href="${pageContext.request.contextPath}/VoteServlet?product_id=<%out.print(p.getId()); %>&review_id=<%out.print(review.getReviewId());%>&decision=-1" style="<%out.print(voteColorDown); %>">
+                    <a class="review-votebox-icon" href="${pageContext.request.contextPath}/VoteServlet?product_id=<%out.print(p.getId()); %>&review_id=<%out.print(review.getReviewId());%>&email_owner=<%out.print(review.getUser().getEmail()); %>&decision=-1" style="<%out.print(voteColorDown); %>">
                         <i class="fa-solid fa-square-caret-down"></i>
                     </a>
                 </div>

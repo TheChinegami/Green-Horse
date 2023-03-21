@@ -53,10 +53,19 @@
 		                <img id="profile-image" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt="">
 		            </div>
 			        <ul id="list-menu">
-			            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/ProfilePage">
+			            <li class="list-menu-item">
+			            	<a class="list-menu-item-link" href="/Green-Horse/ProfilePage">
 			            	Profile
-			            </a></li>
+			            	</a>
+			            </li>
 			            <li class="list-menu-item"><a class="list-menu-item-link" href="# ">Notification</a></li>
+			        	<c:if test="${current_user.getAdmin() == 1}">
+							<li class="list-menu-item">
+				            	<a class="list-menu-item-link" href="/Green-Horse/RequestsPage">
+				            		Requests
+				            	</a>
+				            </li>
+			            </c:if>
 			            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/LogoutServlet">Log Out</a></li>
 			        </ul>
 		        </div>

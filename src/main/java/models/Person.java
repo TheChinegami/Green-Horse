@@ -5,6 +5,7 @@ public class Person {
 	private int id;
 	private String email;
 	private String password;
+	private int admin;
 	private int token;
 	
 	public int getId() {
@@ -25,11 +26,18 @@ public class Person {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
 	public int getToken() {
 		return token;
 	}
 	public void setToken(int token) {
 		this.token = token;
-	}	
+	}
+
 	
 }

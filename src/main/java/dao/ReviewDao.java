@@ -32,6 +32,7 @@ public class ReviewDao {
 			review.setReviewId(rs.getInt("review_id"));
 			review.setUser(user);
 			review.setProduct(product);
+			user.setEmail(rs.getString("user_email"));
 			user.setDisplayName(rs.getString("user_displayname"));
 			user.setPhoto(rs.getString("user_photo"));
 			product.setId(rs.getInt("review_productId"));

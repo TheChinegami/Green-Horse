@@ -155,7 +155,7 @@
     <servlet-name>ReviewProductPage</servlet-name>
     <url-pattern>/ReviewProductPage</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>MainPage</display-name>
     <servlet-name>MainPage</servlet-name>
@@ -234,5 +234,15 @@
   <servlet-mapping>
     <servlet-name>VerificationServlet</servlet-name>
     <url-pattern>/VerificationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestsPage</display-name>
+    <servlet-name>RequestsPage</servlet-name>
+    <servlet-class>servlets.RequestsPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestsPage</servlet-name>
+    <url-pattern>/RequestsPage</url-pattern>
   </servlet-mapping>
 </web-app>

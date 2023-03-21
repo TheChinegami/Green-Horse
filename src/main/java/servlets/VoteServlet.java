@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import jakarta.servlet.http.HttpSession;
 
 import dao.VoteDao;
+import functional.SendMail;
 
 /**
  * Servlet implementation class VoteServlet
@@ -41,6 +42,7 @@ public class VoteServlet extends HttpServlet {
 		int reviewId = Integer.parseInt(request.getParameter("review_id"));
 		int decision = Integer.parseInt(request.getParameter("decision"));
 		int productId = Integer.parseInt(request.getParameter("product_id"));
+		String emailOwner = request.getParameter("email_owner");
 		int userId = ((User)session.getAttribute("current_user")).getId();
 		
 		String decisionString = (decision==1) ? "up" : "down";
@@ -82,6 +84,7 @@ public class VoteServlet extends HttpServlet {
 				message = "you added a new vote successfully";
 //				System.out.println(message);
 			}
+			SendMail.send(emailOwner, "congratulation", "someone voted to your review");
 			this.getServletContext().getRequestDispatcher("/jsp/review-vote-success.jsp?product_id="+productId+"&success=1&message="+message).forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

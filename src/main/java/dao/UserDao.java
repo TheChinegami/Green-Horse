@@ -72,6 +72,7 @@ public class UserDao {
 			user.setLastName(rs.getString("user_lastname"));
 			user.setDisplayName(rs.getString("user_displayname"));
 			user.setPhoto(rs.getString("user_photo"));
+			user.setAdmin(rs.getInt("user_admin"));
 			user.setToken(rs.getInt("user_token"));
 		}
 		close();
