@@ -120,6 +120,12 @@
     <display-name>ProfileServlet</display-name>
     <servlet-name>ProfileServlet</servlet-name>
     <servlet-class>servlets.ProfileServlet</servlet-class>
+    <multipart-config>
+      <location>/Green-Horse/src/webapp/profiles-images</location>
+      <max-file-size>10485760</max-file-size>
+      <max-request-size>52428800</max-request-size>
+      <file-size-threshold>1048576</file-size-threshold>
+    </multipart-config>
   </servlet>
   <servlet-mapping>
     <servlet-name>ProfileServlet</servlet-name>
@@ -155,7 +161,7 @@
     <servlet-name>ReviewProductPage</servlet-name>
     <url-pattern>/ReviewProductPage</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>MainPage</display-name>
     <servlet-name>MainPage</servlet-name>
@@ -234,5 +240,45 @@
   <servlet-mapping>
     <servlet-name>VerificationServlet</servlet-name>
     <url-pattern>/VerificationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestSendPage</display-name>
+    <servlet-name>RequestSendPage</servlet-name>
+    <servlet-class>servlets.RequestSendPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestSendPage</servlet-name>
+    <url-pattern>/RequestSendPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestSendServlet</display-name>
+    <servlet-name>RequestSendServlet</servlet-name>
+    <servlet-class>servlets.RequestSendServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestSendServlet</servlet-name>
+    <url-pattern>/RequestSendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestDetailsPage</display-name>
+    <servlet-name>RequestDetailsPage</servlet-name>
+    <servlet-class>servlets.RequestDetailsPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestDetailsPage</servlet-name>
+    <url-pattern>/RequestDetailsPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RequestDetailsServlet</display-name>
+    <servlet-name>RequestDetailsServlet</servlet-name>
+    <servlet-class>servlets.RequestDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestDetailsServlet</servlet-name>
+    <url-pattern>/RequestDetailsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

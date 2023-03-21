@@ -6,7 +6,7 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
-<title>Insert title here</title>
+<title>Profile</title>
 <%
     String errorMessage = "";
     if(session.getAttribute("error_message")!=null)
@@ -27,12 +27,12 @@
 <%@ include file="/jsp/header.jsp"  %>
 <div class="banner">
     <div class="leftside">
-        <img class="profile_picture" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt="">
+        <img class="profile_picture" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt="">
         <p class="display_name"><% out.println(DN); %></p>
         <p class="full_name"><% out.println(FN +" " + LN); %></p>
     </div>
     <div class="rightside">
-        <p class="reviews_count">69</p>
+        <p class="reviews_count"></p>
         <p class="reviews_text">reviews</p>
         <p class="upvotes_count">69</p>
         <p class="upvotes_text">upvotes</p>
@@ -40,10 +40,11 @@
 
 </div>
 <div class="main">
-    <form id="form" action="${pageContext.request.contextPath}/ProfileServlet" method="POST"> 
-        <label for ="filefield"><img class="profile_picture_form" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt=""></label>
-        <input type="file" id="filefield" name="file" accept="image/*" style="display :none">
-        <label class="form-title-profile-picture" for="profilepicture">Change picture</label>
+    <form id="form" action="${pageContext.request.contextPath}//ProfileServlet" method="POST" enctype="multipart/form-data"> 
+        <label for ="filefield"><img class="profile_picture_form" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt=""></label>
+        <input type="file" id="filefield" name="file" accept="image/.jpg,.jpeg,.png" style="display :none">
+      	
+        <label class="form-title-profile-picture" for="profilepicture"> <c:out value ="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}"></c:out></label>
         <label class="form-title" for="firstname">First name :</label>
         <input class="form-input" type="text" value= <c:out value = " ${ current_user.getFirstName() }" /> name="firstname" required/>
         <label class="form-title" for="lastname">Last name :</label>

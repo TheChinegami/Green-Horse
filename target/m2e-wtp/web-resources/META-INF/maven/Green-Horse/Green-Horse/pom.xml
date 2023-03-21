@@ -16,7 +16,12 @@
 		        </exclusion>
 		    </exclusions>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>com.jfinal</groupId>
+			<artifactId>cos</artifactId>
+			<version>2022.2</version>
+		</dependency>
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>servlet-api</artifactId>
@@ -45,6 +50,11 @@
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 			<version>1.6.2</version>		
+		</dependency>
+		<dependency>
+    		<groupId>org.eclipse.jdt</groupId>
+  			  <artifactId>org.eclipse.jdt.core</artifactId>
+  			  <version>3.33.0</version>
 		</dependency>
   </dependencies>
 

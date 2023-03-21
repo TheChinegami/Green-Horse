@@ -50,7 +50,7 @@
 		    <c:otherwise>
 		        <div id="menu-container">
 		           	<div id="profile-image-container">
-		                <img id="profile-image" src="${pageContext.request.contextPath}/profiles-images/${current_user.getPhoto()}" alt="">
+		                <img id="profile-image" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt="">
 		            </div>
 			        <ul id="list-menu">
 			            <li class="list-menu-item"><a class="list-menu-item-link" href="/Green-Horse/ProfilePage">
