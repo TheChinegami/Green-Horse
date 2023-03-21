@@ -280,5 +280,16 @@
   <servlet-mapping>
     <servlet-name>RequestDetailsServlet</servlet-name>
     <url-pattern>/RequestDetailsServlet</url-pattern>
-  </servlet-mapping>
+	</servlet-mapping>
+	<servlet>
+	<description></description>
+    <display-name>RequestsPage</display-name>
+    <servlet-name>RequestsPage</servlet-name>
+    <servlet-class>servlets.RequestsPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestsPage</servlet-name>
+    <url-pattern>/RequestsPage</url-pattern>
+	</servlet-mapping>
+  
 </web-app>

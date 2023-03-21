@@ -16,7 +16,7 @@ public class ProductDao {
 	public ArrayList<Product> getProducts() throws ClassNotFoundException, SQLException 
 	{
 		ArrayList<Product> list = new ArrayList<Product>();
-		st = MyCon.getCon().prepareStatement("select * from product;");
+		st = MyCon.getCon().prepareStatement("select * from product where product_accept = 1;");
 		rs = st.executeQuery();
 		Product p;
 		while(rs.next())
@@ -54,7 +54,7 @@ public class ProductDao {
 	
 	public ArrayList<Product> getProductByCategory(int category, int size, int offset) throws ClassNotFoundException, SQLException {
 		ArrayList<Product> list = new ArrayList<Product>();
-		st = MyCon.getCon().prepareStatement("select * from product where product_category = ? limit ? offset ?;");
+		st = MyCon.getCon().prepareStatement("select * from product where product_category = ? and product_accept = 1 limit ? offset ?;");
 		st.setInt(1, category);
 		st.setInt(2, size);
 		st.setInt(3, offset);
@@ -77,7 +77,7 @@ public class ProductDao {
 	
 	public ArrayList<Product> getProductBySearch(String title, int size, int offset) throws ClassNotFoundException, SQLException {
 		ArrayList<Product> list = new ArrayList<Product>();
-		st = MyCon.getCon().prepareStatement("select * from product where product_title like CONCAT( '%',?,'%') limit ? offset ?;");
+		st = MyCon.getCon().prepareStatement("select * from product where product_title like CONCAT( '%',?,'%') and product_accept = 1 limit ? offset ?;");
 		st.setString(1, title);
 		st.setInt(2, size);
 		st.setInt(3, offset);
@@ -100,7 +100,7 @@ public class ProductDao {
 	
 	public int getCountProductByCategory(int category) throws ClassNotFoundException, SQLException {
 		int num = 0;
-		st = MyCon.getCon().prepareStatement("select count(*) from product where product_category = ?");
+		st = MyCon.getCon().prepareStatement("select count(*) from product where product_category = ? and product_accept = 1;");
 		st.setInt(1, category);
 		rs = st.executeQuery();
 		rs.next();
@@ -111,13 +111,31 @@ public class ProductDao {
 
 	public int getCountProductBySearch(String title) throws ClassNotFoundException, SQLException {
 		int num = 0;
-		st = MyCon.getCon().prepareStatement("select count(*) from product where product_title like CONCAT( '%',?,'%');");
+		st = MyCon.getCon().prepareStatement("select count(*) from product where product_title like CONCAT( '%',?,'%') and product_accept = 1;");
 		st.setString(1, title);
 		rs = st.executeQuery();
 		rs.next();
 		num = rs.getInt(1);
 		close();
 		return num;
+	}
+	
+	
+	public ArrayList<Product> getRequests() throws ClassNotFoundException, SQLException {
+		ArrayList<Product> list = new ArrayList<Product>();
+		st = MyCon.getCon().prepareStatement("select * from product where product_accept = 0;");
+		rs = st.executeQuery();
+		Product p;
+		while(rs.next())
+		{
+			p = new Product();
+			p.setId(rs.getInt("product_id"));
+			p.setTitle(rs.getString("product_title"));
+			p.setPhoto(rs.getString("product_photo"));
+			list.add(p);
+		}
+		close();
+		return list;
 	}
 	
 	private void close() throws SQLException 
