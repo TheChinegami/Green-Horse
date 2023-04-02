@@ -253,6 +253,34 @@ a {
 
 
 
+#null-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.null-image {
+    width: 300px;
+}
+
+#null-message-container {
+	text-align: center;
+	padding: 10px;
+}
+
+.null-message {
+	font-size: 20px;
+    font-family: 'urbanist';
+    font-weight: 500;
+    font-size: 18px;
+    color: #5C5C5C;
+}
+
+.null-message-link {
+    font-weight: 600;
+    color: #1DB954;
+}
+
 
 
 

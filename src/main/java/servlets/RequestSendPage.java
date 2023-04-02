@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import models.Category;
+import models.User;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -36,6 +37,12 @@ public class RequestSendPage extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 
+
+		int userId = ((User)session.getAttribute("current_user")).getId();
+		if(userId == 0) {
+			this.getServletContext().getRequestDispatcher("/LoginPage").forward(request, response);
+			return;
+		}
 		CategoryDao cate = new CategoryDao();
 		ArrayList<Category> Clist = new ArrayList();
 		try {

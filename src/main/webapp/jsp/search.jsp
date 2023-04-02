@@ -20,22 +20,41 @@
 <body>
 
 				<div id="content"></div>
+			
+				<% 
+					int productListLength = (int)session.getAttribute("products_count");
+					if(productListLength == 0 ){
+				%>	
+						<div id="null-image-container">
+							<img class="null-image" src="images/no-result-found.png" alt="">
+						</div>
+						<div id="null-message-container">
+			                <div class="null-message">
+			                	if you have a product which isn't exist in our database, you can added it from here <br> 
+				                <a class="null-message-link" href="${pageContext.request.contextPath}/RequestSendPage">
+				                add product
+				                </a> 
+			                </div>
+			            </div>
+				<%
+					}
+				%>
 				
             	<div id="content-footer">
             	
-            	<%
-            		int productListLength = (int)session.getAttribute("products_count");
-            		int productPages;
-            		if(productListLength % 2 != 0)
-            			productPages = (productListLength/2)+1;
-            		else
-            			productPages = (productListLength/2);
-            		for(int i=1;i<=productPages; i++){
-            	%>
-					<div class="content-footer-pages"><%out.print(i); %></div>
-				<%
-            		}
-				%>
+	            	<%
+	            		
+	            		int productPages;
+	            		if(productListLength % 2 != 0)
+	            			productPages = (productListLength/2)+1;
+	            		else
+	            			productPages = (productListLength/2);
+	            		for(int i=1;i<=productPages; i++){
+	            	%>
+						<div class="content-footer-pages"><%out.print(i); %></div>
+					<%
+	            		}
+					%>
 				</div>
 	<script type="text/javascript">
 	

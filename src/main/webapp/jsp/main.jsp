@@ -46,42 +46,7 @@
         </aside>
         
         <div id="content-container">
-        	<!-- <div id="content">
-        	<%
-        		/*for(Product item:plist){
-        	%>
-				<section class="section">
-			        <div class="section-image-container">
-			            <img class="section-item-img" src="${pageContext.request.contextPath}/products-images/<%out.print(item.getPhoto());%>" alt="">
-			        </div>
-			        <div class="section-content">
-			            <div class="section-content-title">
-			            	<%out.print(item.getTitle());%>
-			            </div>
-			            <div class="section-content-price">
-			            	<%out.print(item.getMinPrice()+"$ - "+item.getMaxPrice()+"$");%>
-			            </div>
-			            <div class="section-content-stars">
-			           		<%
-			           			out.println(RateIconsGenerator.getStars(item.getRate()));
-			           		%>		
-			            </div>
-			            <div class="section-content-rating">
-			            	<%out.print(item.getRate());%>
-						</div>
-			            <div class="section-content-link-container">
-			                <a class="section-content-link" href="${pageContext.request.contextPath}/ProductDetailsPage?id=<%out.print(item.getId());%>">see more
-			                    <i class="fa-solid fa-circle-right section-content-link-icon"></i>
-			                </a>
-			            </div>
-			        </div>
-			    </section>
-	            <div class="section-divider"></div> 
-            <%
-            	} */
-            %>
-            
-	        </div> -->
+        	
         </div>
         
     </div>
