@@ -44,7 +44,7 @@
                     </div>
                     
                     <div class="section-content-link-container">
-                        <a class="section-content-link" href="#">
+                        <a class="section-content-link" href="${pageContext.request.contextPath}/RequestDetailsPage?Pid=${item.getId()}">
                         	watch details
                         </a>
                     </div>

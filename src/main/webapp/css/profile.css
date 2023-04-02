@@ -28,7 +28,7 @@
 }
 
 
-.profile_picture{
+.banner-profile-picture-container{
 	width :120px;
 	border-radius : 60px;
 	border : 2px solid #000;
@@ -38,7 +38,7 @@
 
 }
 
-.profile_picture_form{
+.form-profile-picture-container{
 	
 	border : 2px solid #000;
 	width :120px;
@@ -48,6 +48,13 @@
 	cursor: pointer;
 
 }
+
+#profile-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 
 
 .display_name{
@@ -163,6 +170,8 @@
 
 
 
+
+
 #form-button {
     
     background: #1DB954;
@@ -199,3 +208,4 @@
     color: #fff;
     background-color: #000000;
 }
+

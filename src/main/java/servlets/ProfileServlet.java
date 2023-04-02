@@ -60,58 +60,41 @@ public class ProfileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-	
-		String firstname,lastname,displayname,email,password,newpassword,confirmpassword;
+		HttpSession session = request.getSession(); 
+		
+		String firstname,lastname,displayname,email,password,newpassword,confirmpassword,newFileName =  Integer.toString(((User) session.getAttribute("current_user")).getId())+".jpg";
 		
 		UserDao userDao = new UserDao();
 		User currentUser;
 		
 		
-		HttpSession session = request.getSession(); 
+		
+		
+		firstname = request.getParameter("firstname");
+		lastname = request.getParameter("lastname");
+		displayname = request.getParameter("displayname");
+		email =((User) session.getAttribute("current_user")).getEmail();
+		password = request.getParameter("password");
+		newpassword = request.getParameter("newpassword");
+		confirmpassword = request.getParameter("confirmpassword");
 		
 		Part filePart = request.getPart("file");
 		System.out.println(filePart.getSize());
 		
-		if(filePart != null && filePart.getSize() > 0){
+		
+	/*	if(filePart != null && filePart.getSize() > 0){
 			
-			String originalFileName= filePart.getSubmittedFileName();
+		//	String originalFileName= filePart.getSubmittedFileName();
 			
 			// Extract the file extension from the original file name
-			String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+		//	String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
 			
 		
 		//extracting the previous photo name so we can rewrite it to the new photo
-			String photoname = null ;
-		
-			int dotIndex = ((User) session.getAttribute("current_user")).getPhoto().lastIndexOf(".");
-			
-			if (dotIndex>=0) {
-						
-				
-				photoname= ((User) session.getAttribute("current_user")).getPhoto().substring(0,dotIndex);
-				}
-			
-			String newFileName = photoname + ".jpg";
 			
 			
-			System.out.println(newFileName);
-			
-			InputStream fileContent = filePart.getInputStream();
-			
-			Path filePath = Paths.get(getServletContext().getRealPath("/")+"profiles-images/", newFileName);
-			
-			System.out.println(System.getProperty("java.io.tmpdir"));
-			System.out.println(request.getContextPath());
-			
-
-			
-			Files.copy(fileContent, filePath, StandardCopyOption.REPLACE_EXISTING);
-			
-			((User) session.getAttribute("current_user")).setPhoto(newFileName);
-			
-			
-			String query = "update user set user_photo = ? where user_email= ?";
-			try {
+		//	String query = "update user set user_photo = ? where user_email= ?";
+		//	try {
 				
 				
 				System.out.println(((User)session.getAttribute("current_user")).getEmail());
@@ -125,7 +108,7 @@ public class ProfileServlet extends HttpServlet {
 				 
 					System.out.println("Uploaded file saved as: " + newFileName + " in " + filePath);
 			System.out.println("current user photo :" + ((User) session.getAttribute("current_user")).getPhoto() );
-			 response.setContentType("image/jpg");
+			 /*response.setContentType("image/jpg");
 			 currentUser = userDao.getUserByEmailAndPassword(((User)session.getAttribute("current_user")).getEmail(), ((User)session.getAttribute("current_user")).getPassword());
 				session.setAttribute("current_user", currentUser); 
 			 
@@ -138,34 +121,56 @@ public class ProfileServlet extends HttpServlet {
 					
 					e.printStackTrace();
 				}
-			
+	
+		}else { */
 		
-			 
-			
-			
-			 
-			
-		}else {
+		if(!password.equals(((User) session.getAttribute("current_user")).getPassword()))
+		{
+			System.out.println("Test if 1 ");
+			session.setAttribute("error_message","You entered a wrong password");
+			this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);		
+			return;
+		}
+		else { System.out.println("Test else 1 ");} 
 		
-			System.out.println("nothing to see here");
 			
-			firstname = request.getParameter("firstname");
-			lastname = request.getParameter("lastname");
-			displayname = request.getParameter("displayname");
-			email =((User) session.getAttribute("current_user")).getEmail();
-			password = request.getParameter("password");
-			newpassword = request.getParameter("newpassword");
-			confirmpassword = request.getParameter("confirmpassword");
-			if(!password.equals(((User) session.getAttribute("current_user")).getPassword()))
-			{
-				session.setAttribute("error_message","You entered a wrong password");
-				this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);		
-				return;
-			}
+		if(filePart != null && filePart.getSize() > 0){
 			
-			if(newpassword.isBlank()) { 
+				System.out.println("Test if 2 ");
 				
-				String query = "update user set user_firstname = ? ,user_lastname = ? ,user_displayname = ? where user_email= ?";
+				InputStream fileContent = filePart.getInputStream();
+				
+				Path filePath = Paths.get(getServletContext().getRealPath("/")+"profiles-images/", newFileName);
+				
+				Files.copy(fileContent, filePath, StandardCopyOption.REPLACE_EXISTING);
+				
+			}
+		else { 				System.out.println("test else 2 "); }
+			
+				if(newpassword.isBlank()) { 
+					
+					System.out.println("Test if 3 ");
+				newpassword= ((User) session.getAttribute("current_user")).getPassword();
+				;
+				
+			} else {
+				
+				System.out.println("Test else 3 ");
+
+				
+				
+				if(!newpassword.equals(confirmpassword))
+				{							System.out.println("Test if 4 ");
+
+					session.setAttribute("error_message","your first and second password didn't match");
+					this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);		
+					return;
+				}else {					System.out.println("Test else 4 "); }}
+				
+				System.out.println("Test final stuff  ");
+
+				
+				String query = "update user set user_firstname = ? ,user_lastname = ? ,user_displayname = ?,user_password = ?, user_photo = ? where user_email= ?";
 				try {
 					
 					
@@ -175,11 +180,13 @@ public class ProfileServlet extends HttpServlet {
 					st.setString(1, firstname);
 					st.setString(2, lastname);
 					st.setString(3, displayname);
-					st.setString(4, ((User)session.getAttribute("current_user")).getEmail());
+					st.setString(4, newpassword);
+					st.setString(5,newFileName);
+					st.setString(6, email);
 					
 					 st.execute();
 
-					 currentUser = userDao.getUserByEmailAndPassword(email, password);
+					 currentUser = userDao.getUserByEmailAndPassword(email, newpassword);
 					 session.setAttribute("current_user", currentUser);
 
 					// if the query executed
@@ -192,49 +199,9 @@ public class ProfileServlet extends HttpServlet {
 					
 					e.printStackTrace();
 				}
-				
-				
-			}
-			else {
-				
-				if(!newpassword.equals(confirmpassword))
-			{
-				session.setAttribute("error_message","your first and second password didn't match");
-				this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);		
-				return;
 			}
 				
-				
-			}
-			String query = "update user set user_firstname = ? ,user_lastname = ? ,user_displayname = ? ,user_password = ? where user_email = ?";
-
-
-			try {
-				PreparedStatement st = MyCon.getCon().prepareStatement(query);
-				st.setString(1, firstname);
-				st.setString(2, lastname);
-				st.setString(3, displayname);
-				st.setString(4,newpassword);
-				st.setString(5, email);
-				
-				st.executeUpdate();
-				
-				currentUser = userDao.getUserByEmailAndPassword(email, newpassword);
-				session.setAttribute("current_user",currentUser);
-				
-				
-
-				// if the query executed
-				session.setAttribute("error_message_successfully","Your Informations have registered succefully!");
-				this.getServletContext().getRequestDispatcher("/ProfilePage").forward(request, response);
-				return;
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
+			
+		
 	}
-	
-	}
-}
+

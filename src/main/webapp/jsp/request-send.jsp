@@ -7,36 +7,38 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/request-send.css">
-<title>Insert title here</title>
+<title>Product Request</title>
 
+<%
+	ArrayList<Category> Clist = (ArrayList<Category>)session.getAttribute("Clist");
+%>
 </head>
 <body>
 <%@ include file="/jsp/header.jsp"  %>
 
 
     <div class="main">
-        <form id="form" action="${pageContext.request.contextPath}/RequestSendServlet" method="POST"> 
+        <form id="form" action="${pageContext.request.contextPath}/RequestSendServlet" method="POST" enctype="multipart/form-data">
             <label for ="filefield"><img class="product-img" src="${pageContext.request.contextPath}/products-requests-images/Product_Lg_Type.jpg" ></label>
-            <input type="file" id="filefield" name="file" accept="image/*" style="display :none">
+            <input type="file" id="filefield" name="file" required accept="image/.jpg,.jpeg,.png" style="display :none">
             <label class="form-title" for="Product">Product Name :</label>
             <input class="form-input" type="text" required placeholder="Enter the product name" name="productname"/>
             <label class="form-title" for="price">Price in $ :</label>
             <label class="form-title" for="minprice">Min </label>
-            <input class="form-input" type="text" required placeholder="Min Price" name="minprice"/>
+            <input class="form-input" type="number" step="0.01" required placeholder="Min Price" name="minprice"/>
             <label class="form-title" for="maxprice">Max </label>
-            <input class="form-input" type="text" required placeholder="Max Price" name="maxprice"/>
+            <input class="form-input" type="number" step="0.01" required placeholder="Max Price" name="maxprice"/>
             <label class="form-title" for="category">Category:</label>
             <select  class="form-input" name="category">
-                <option value="Electronics" selected>Electronics</option>
-                <option value="Beauty & Health">Beauty & Health</option>
-                <option value="Men's fashion">Men's Fashion</option>
-                <option value="Women's fashion">Women's Fashion</option>
+              <c:forEach var="cate" items="${Clist}">
+    	  	<option value="${cate.id}">${cate.name}</option>
+   			</c:forEach>
             </select>
             <label class="form-title" for="Description">Description :</label>
-            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="Description"></textarea>
+            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="description"></textarea>
             <input id="form-button" type="submit" value="Send request">
             <input id="form-button-cancel" type="reset" value="Cancel">
-            <label class="form-title" for ="imgclick">Click the picture to change it</label>
+            <label class="form-title" for ="imgclick">Click to Upload</label>
     </div>
     
 
