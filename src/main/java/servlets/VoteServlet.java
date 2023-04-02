@@ -84,7 +84,7 @@ public class VoteServlet extends HttpServlet {
 				message = "you added a new vote successfully";
 //				System.out.println(message);
 			}
-			SendMail.send(emailOwner, "congratulation", "someone voted to your review");
+			//SendMail.send(emailOwner, "congratulation", "someone voted to your review");
 			this.getServletContext().getRequestDispatcher("/jsp/review-vote-success.jsp?product_id="+productId+"&success=1&message="+message).forward(request, response);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
