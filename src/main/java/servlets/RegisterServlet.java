@@ -43,7 +43,7 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstname,lastname,displayname,email,password,confirmpassword;
+		String firstname,lastname,displayname,confirmpassword,email,password;
 		User user = new User();
 		UserDao userDao = new UserDao();
 		
@@ -52,10 +52,10 @@ public class RegisterServlet extends HttpServlet {
 		// get the values of the input fields
 		firstname = request.getParameter("firstname");
 		lastname = request.getParameter("lastname");
-		displayname = request.getParameter("displayname");
+		confirmpassword=request.getParameter("confirmpassword");
 		email = request.getParameter("email");
 		password = request.getParameter("password");
-		confirmpassword = request.getParameter("confirmpassword");
+		displayname=request.getParameter("displayname");
 		
 		// if the password 1 and 2 didn't match
 		if(!password.equals(confirmpassword))

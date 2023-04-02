@@ -5,7 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import models.Category;
+
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import dao.CategoryDao;
 
 /**
  * Servlet implementation class RequestSendPage
@@ -26,7 +33,21 @@ public class RequestSendPage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		HttpSession session = request.getSession();
+
+		CategoryDao cate = new CategoryDao();
+		ArrayList<Category> Clist = new ArrayList();
+		try {
+			Clist=cate.getCategories();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		session.setAttribute("Clist", Clist);
+		
 		this.getServletContext().getRequestDispatcher("/jsp/request-send.jsp").forward(request, response);
+		
 	}
 
 	/**

@@ -10,6 +10,7 @@
 <%
     String errorMessage = "";
     if(session.getAttribute("error_message")!=null)
+    
     {
         errorMessage = (String)session.getAttribute("error_message");
         session.removeAttribute("error_message");
@@ -27,12 +28,15 @@
 <%@ include file="/jsp/header.jsp"  %>
 <div class="banner">
     <div class="leftside">
-        <img class="profile_picture" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt="">
+    <p><c:out value ="${pageContext.request.contextPath}/css/profile.css"></c:out></p>>
+    	<div class="banner-profile-picture-container">
+        <img  id="profile-image" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt="">
+        </div>
         <p class="display_name"><% out.println(DN); %></p>
         <p class="full_name"><% out.println(FN +" " + LN); %></p>
     </div>
     <div class="rightside">
-        <p class="reviews_count"></p>
+        <p class="reviews_count">69</p>
         <p class="reviews_text">reviews</p>
         <p class="upvotes_count">69</p>
         <p class="upvotes_text">upvotes</p>
@@ -41,10 +45,12 @@
 </div>
 <div class="main">
     <form id="form" action="${pageContext.request.contextPath}//ProfileServlet" method="POST" enctype="multipart/form-data"> 
-        <label for ="filefield"><img class="profile_picture_form" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt=""></label>
+    <div class="form-profile-picture-container">
+        <label for ="filefield"><img id="profile-image" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt=""></label>
+    </div>   
         <input type="file" id="filefield" name="file" accept="image/.jpg,.jpeg,.png" style="display :none">
       	
-        <label class="form-title-profile-picture" for="profilepicture"> <c:out value ="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}"></c:out></label>
+        <label class="form-title-profile-picture" for="profilepicture"> Click the picture</label>
         <label class="form-title" for="firstname">First name :</label>
         <input class="form-input" type="text" value= <c:out value = " ${ current_user.getFirstName() }" /> name="firstname" required/>
         <label class="form-title" for="lastname">Last name :</label>

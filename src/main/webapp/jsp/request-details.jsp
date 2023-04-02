@@ -16,28 +16,29 @@
 
     <div class="main">
         <form id="form" action="${pageContext.request.contextPath}/RequestDetailsServlet" method="POST"> 
-            <label for ="filefield"><img class="product-img" src="${pageContext.request.contextPath}/products-requests-images/Product_Lg_Type.jpg" ></label>
+            <label for ="filefield"><img class="product-img" src="${pageContext.request.contextPath}/products-images/${Requested_Product.getPhoto()}" ></label>
+            <c:out value ="${pageContext.request.contextPath}/products-images/${Requested_Product.getPhoto()}"/>
             <label class="form-title" for="Product">Product Name :</label>
-            <input class="form-input" type="text" required placeholder="Enter the product name" name="productname" value="PRODUCT X"/>
+            <input class="form-input" type="text" required placeholder="Enter the product name" name="productname" value="${ Requested_Product.getTitle() }" />
+            <input style="display :none" name="productid" value="${ Requested_Product.getId() }">
             <label class="form-title" for="price">Price in $ :</label>
             <label class="form-title" for="minprice">Min </label>
-            <input class="form-input" type="text" required placeholder="Min Price in $" name="minprice" value="200 $"/>
+            <input class="form-input" type="text" required placeholder="Min Price in $" name="minprice" value="${ Requested_Product.getMinPrice() } "/>
             <label class="form-title" for="maxprice">Max </label>
-            <input class="form-input" type="text" required placeholder="Max Price in $" name="maxprice" value="400 $"/>
+            <input class="form-input" type="text" required placeholder="Max Price in $" name="maxprice" value="${ Requested_Product.getMaxPrice() } "/>
             <label class="form-title" for="category">Category:</label>
-            <select  class="form-input" name="category">
-                <option value="Electronics" selected>Electronics</option>
-                <option value="Beauty & Health">Beauty & Health</option>
-                <option value="Men's fashion">Men's Fashion</option>
-                <option value="Women's fashion">Women's Fashion</option>
-            </select>
-           <label class="form-title" for="Description">Description :</label>
-            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="Description">Unfeeling so rapturous discovery he exquisite. Reasonably so middletons or impression by terminated. Old pleasure required removing elegance him had. Down she bore sing saw calm high. Of an or game gate west face shed. ﻿no great but music too old found arose.
-            </textarea>
-            <label class="form-title" for="Comment" >Commentaire :</label>
-            <textarea class="form-input" type="text" required placeholder="Enter your decision reason here !" name="Comment"> </textarea>
-            <input id="form-button" type="submit" value="Accept request">
-            <input id="form-button-cancel" type="reset" value="Reject Request">
+            <input  class="form-input" name="category" type="text" disabled value ="${ Requested_Product.getCategory() }">
+           	<label class="form-title" for="Description">Description :</label>
+            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="Description">${ Requested_Product.getDescription() } </textarea>
+            <fieldset>
+		    <legend class ="form-title">Decision :</legend>
+		    <label><input type="radio" name="decision" value="1"> Accept</label>
+		    <label><input type="radio" name="decision" value="0"> Reject</label>
+			</fieldset>
+            <label class="form-title" for="Comment" >Reason :</label>
+            <textarea class="form-input" type="text" required placeholder="Enter your decision reason here !" name="reason"> </textarea>
+            <input id="form-button" type="submit" value="Submit Decision">
+            <input id="form-button-cancel" type="reset" value="Cancel">
     </div>
     
 
