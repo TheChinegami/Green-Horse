@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pff.css">
 <title>Profile</title>
 <%
     String errorMessage = "";
@@ -28,7 +28,6 @@
 <%@ include file="/jsp/header.jsp"  %>
 <div class="banner">
     <div class="leftside">
-    <p><c:out value ="${pageContext.request.contextPath}/css/profile.css"></c:out></p>>
     	<div class="banner-profile-picture-container">
         <img  id="profile-image" src="${pageContext.request.contextPath}//profiles-images/${current_user.getPhoto()}?v=<%= System.currentTimeMillis() %>" alt="">
         </div>
@@ -36,9 +35,9 @@
         <p class="full_name"><% out.println(FN +" " + LN); %></p>
     </div>
     <div class="rightside">
-        <p class="reviews_count">69</p>
+        <p class="reviews_count"><c:out value = "${ Reviewscount }">0</c:out></p>
         <p class="reviews_text">reviews</p>
-        <p class="upvotes_count">69</p>
+        <p class="upvotes_count"><c:out value = "${ Upvotescount }">0</c:out></p>
         <p class="upvotes_text">upvotes</p>
     </div>
 

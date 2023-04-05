@@ -88,6 +88,32 @@ public class UserDao {
 		close();
 	}
 	
+	public int getReviewsCount(int id) throws ClassNotFoundException, SQLException {
+		int count;
+		String query = "Select count(review_userId) from review where review_userId = ?;";
+		st = MyCon.getCon().prepareStatement(query);	
+		st.setInt(1,id);
+		rs = st.executeQuery();
+		rs.next();
+		count=rs.getInt(1);
+		close();
+		
+	return count ; }
+	
+	public int getUpvotesCount(int Userid) throws ClassNotFoundException, SQLException{
+		int count ;
+		String query = "Select count(review_userId) from review,vote where review.review_userId = ? and vote_reviewId=review.review_id and vote_decision=1;";
+		st = MyCon.getCon().prepareStatement(query);	
+		st.setInt(1,Userid);
+		rs = st.executeQuery();
+		rs.next();
+		count=rs.getInt(1);
+		close();
+		
+		
+		
+	return count ;} 
+	
 	private void close() throws SQLException 
 	{
 		st.close();

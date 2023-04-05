@@ -1,0 +1,230 @@
+@charset "UTF-8";	
+
+
+.banner{
+	
+	margin-right:20px;
+	margin-left:20px;
+	margin-top:5px;
+	width : fill;
+    padding-bottom: 50px;
+	height : fit-content ;
+	border: solid  ;
+	border-width: thin;
+	min-width: 1800px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	
+	background-color: #F7FFF5 ;
+	
+	
+}
+
+.leftside{
+    min-width: 50%;
+    margin-top: 2%;
+    width: 49%;
+    border: solid;
+    border-width: thin;
+    border-color: #F7FFF5;
+    height: fit-content;
+
+}
+
+.rightside{
+    min-width: 50%;
+    height: fit-content;
+    margin-top: -110px;
+    float: right;
+    width: 49%;  
+    border: solid;
+    border-width: thin ;
+    border-color: #F7FFF5;
+
+}
+
+.banner-profile-picture-container{
+	display: inline-block;
+    margin-top: 20px;
+	margin-left: 170px;
+    width: 130px;
+    height: 130px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid #868686;
+    overflow: hidden;
+}
+
+
+
+.form-profile-picture-container{
+	
+    display: inline-block;
+	margin-left: 390px;
+    width: 120px;
+    height: 120px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid #868686;
+    overflow: hidden;
+}
+
+#profile-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.display_name{
+
+	text-transform: capitalize ;
+	font-size: 40px ;
+    font-weight: 600;
+    margin-left: 315px;
+    margin-top: -105px;
+    position: relative;
+	
+}
+
+.full_name{
+	
+	text-transform: capitalize;
+	font-size: 30px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    margin-left: 315px;
+    
+	
+}
+
+
+.reviews_count{
+    margin-left: 310px;
+    margin-top: 20px;
+	text-transform: capitalize ;
+	font-size: 40px ;
+    font-weight: 600;
+}
+.reviews_text{
+
+    margin-left: 280px;
+	text-transform: capitalize ;
+	font-size: 30px ;
+    font-weight: 600;    
+
+}
+
+.upvotes_count{
+    margin-left: 470px;
+    margin-top: -85px;
+	text-transform: capitalize ;
+	font-size: 40px ;
+    font-weight: 600;
+
+}
+
+.upvotes_text{
+
+    margin-left: 440px;
+	text-transform: capitalize ;
+	font-size: 30px ;
+    font-weight: 600;   
+
+
+}
+
+.main{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 480px;
+    max-width: fit-content;
+	height : fit-content ;
+    min-width: fit-content;
+    padding-right: 20px;
+    padding-left: 20px ;
+
+    border: solid  ;
+	border-width: thin;
+	
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+
+}
+.form-title {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 19px;
+    color: #4D4D4D;
+    padding: 4px 0 4px 35px;
+    margin: 20px 0px 15px 0px;
+}
+
+.form-title-profile-picture {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.6);;
+    padding: 4px 0 4px 35px;
+    margin: 20px 0px 15px 320px;
+}
+
+.form-input {
+    display: block;
+    background: #FFFFFF;
+    border: 1px solid #9D9D9D;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 12px 0 12px 18px;
+    width: 400px;
+    margin: 8px 35px;
+}
+
+
+#form-button {
+    
+    background: #1DB954;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    padding: 12px 0 12px 12px;
+    width: 250px;
+    margin: 50px 35px 8px 350px;
+    cursor: pointer;
+}
+
+#form-button:hover {
+    color: #fff;
+    background-color: #000000;
+}
+
+#form-button-cancel {
+
+    text-align: center;
+    background: #bdbebd;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    padding: 12px 0 12px 12px;
+    width: 250px;
+    margin: 8px 8px 8px 8px;
+    cursor: pointer;
+}
+
+#form-button-cancel:hover {
+    color: #fff;
+    background-color: #000000;
+}
+
+
+
+

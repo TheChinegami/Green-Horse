@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/request-details.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestdetails.css">
 <title>Insert title here</title>
 
 </head>
@@ -17,21 +17,20 @@
     <div class="main">
         <form id="form" action="${pageContext.request.contextPath}/RequestDetailsServlet" method="POST"> 
             <label for ="filefield"><img class="product-img" src="${pageContext.request.contextPath}/products-images/${Requested_Product.getPhoto()}" ></label>
-            <c:out value ="${pageContext.request.contextPath}/products-images/${Requested_Product.getPhoto()}"/>
             <label class="form-title" for="Product">Product Name :</label>
-            <input class="form-input" type="text" required placeholder="Enter the product name" name="productname" value="${ Requested_Product.getTitle() }" />
+            <input class="form-input" type="text" required placeholder="Enter the product name" name="productname" disabled value="${ Requested_Product.getTitle() }" />
             <input style="display :none" name="productid" value="${ Requested_Product.getId() }">
             <label class="form-title" for="price">Price in $ :</label>
             <label class="form-title" for="minprice">Min </label>
-            <input class="form-input" type="text" required placeholder="Min Price in $" name="minprice" value="${ Requested_Product.getMinPrice() } "/>
+            <input class="form-input" type="text" required placeholder="Min Price in $" name="minprice" disabled value="${ Requested_Product.getMinPrice() } "/>
             <label class="form-title" for="maxprice">Max </label>
-            <input class="form-input" type="text" required placeholder="Max Price in $" name="maxprice" value="${ Requested_Product.getMaxPrice() } "/>
+            <input class="form-input" type="text" required placeholder="Max Price in $" name="maxprice" disabled value="${ Requested_Product.getMaxPrice() } "/>
             <label class="form-title" for="category">Category:</label>
             <input  class="form-input" name="category" type="text" disabled value ="${ Requested_Product.getCategory() }">
            	<label class="form-title" for="Description">Description :</label>
-            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="Description">${ Requested_Product.getDescription() } </textarea>
+            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" disabled name="Description">${ Requested_Product.getDescription() } </textarea>
+            <label class ="form-title">Decision :</label>
             <fieldset>
-		    <legend class ="form-title">Decision :</legend>
 		    <label><input type="radio" name="decision" value="1"> Accept</label>
 		    <label><input type="radio" name="decision" value="0"> Reject</label>
 			</fieldset>

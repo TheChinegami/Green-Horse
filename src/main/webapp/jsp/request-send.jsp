@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/request-send.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requestsend.css">
 <title>Product Request</title>
 
 <%
@@ -21,6 +21,7 @@
         <form id="form" action="${pageContext.request.contextPath}/RequestSendServlet" method="POST" enctype="multipart/form-data">
             <label for ="filefield"><img class="product-img" src="${pageContext.request.contextPath}/products-requests-images/Product_Lg_Type.jpg" ></label>
             <input type="file" id="filefield" name="file" required accept="image/.jpg,.jpeg,.png" style="display :none">
+            <label class="form-title" for ="imgclick">Click to Upload</label>
             <label class="form-title" for="Product">Product Name :</label>
             <input class="form-input" type="text" required placeholder="Enter the product name" name="productname"/>
             <label class="form-title" for="price">Price in $ :</label>
@@ -35,10 +36,10 @@
    			</c:forEach>
             </select>
             <label class="form-title" for="Description">Description :</label>
-            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="description"></textarea>
+            <textarea class="form-input" type="text" required placeholder="Enter the item Description here" name="description" style="resize :none"></textarea>
             <input id="form-button" type="submit" value="Send request">
             <input id="form-button-cancel" type="reset" value="Cancel">
-            <label class="form-title" for ="imgclick">Click to Upload</label>
+            
     </div>
     
 

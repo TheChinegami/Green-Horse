@@ -14,6 +14,7 @@ a {
 
     height: 700px;
     width: 64%;
+    min-width: fit-content;
     margin-left:18% ;
     margin-top: 30px;
     border-radius: 30px;
@@ -26,7 +27,7 @@ a {
 }
 .product-img{
     
-    margin-left: 20px;
+    margin-left: 40px;
     margin-top: 40px;
     border-radius: 20px;
     width: 300px;
@@ -47,16 +48,21 @@ a {
 }
 .form-title[for="imgclick"]{
 
-    margin-left: -6px;
-    margin-top: -320px;
+    margin-left: 80px;
+    margin-top: 0px;
     font-size: 22px;
 }
 
 .form-title[for="Product"]{
 
-    margin-top : -240px;
+    margin-top : -280px;
 }
 
+.form-title[for="price"]{
+    
+    margin-top: 40px;
+
+}
 
 .form-title[for="minprice"]{
     margin-top: -40px;
@@ -69,9 +75,20 @@ a {
     margin-left: 820px;
  
 }
+.form-title[for="category"]{
+    
+    margin-top: 40px;
+
+}
+.form-title[for="Description"]{
+    
+    margin-top: 40px;
+
+}
 label[for="filefield"]{
     
     margin-left: 0px;
+    cursor: pointer;
 
 }
 
@@ -84,7 +101,7 @@ label[for="filefield"]{
     font-size: 18px;
     border-radius: 8px;
     padding: 12px 0 12px 18px;
-    width: 400px;
+    width: 48%;
     margin: 8px 35px;
     margin-left : 550px;
 }
@@ -92,49 +109,39 @@ label[for="filefield"]{
 .form-input[name="productname"]{
 
     margin-top: -47px;
-    width: 570px;
-
 }
 
 
 .form-input[name="minprice"]{
 
-    width: 200px;
+    width: 17%;
     margin-top: -49px;
     margin-left: 600px;
 
 }
 .form-input[name="maxprice"]{
     margin-top: -50px;
-    width: 200px;
+    width: 17%;
     margin-left: 920px;
 
 }
 .form-input[name=category]{
 
+    width: 50%;
     margin-top: -50px;
-    width: 590px;
 
 }
-.form-input[name="Description"]{
+.form-input[name="description"]{
 
-    width: 760px;
-    height: 90px;
-    margin-left: 365px;
+    margin-top: 20px;
+    width: 64%;
+    height: 100px;
+    margin-left: 370px;
     text-align: left;
 
 
 }
 
-.form-input[name="Comment"]{
-
-    width: 760px;
-    height: 90px;
-    margin-left: 365px;
-    text-align: left;
-
-
-}
 
 #form-button {
     
@@ -147,7 +154,7 @@ label[for="filefield"]{
     width: 250px;
     margin-left: 23%;
     margin-right: 100px;
-    margin-top: 30px;
+    margin-top: 130px;
     cursor: pointer;
 }
 
@@ -174,122 +181,6 @@ label[for="filefield"]{
     color: #fff;
     background-color: #000000;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-nav {
-    color: black;
-    width: 100%;
-    background-color: #fff;
-    height: 80px;
-    justify-content: space-between;
-    display: flex;
-    overflow: hidden;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: solid;
-    border-width : 0px 0px thin 0px ;
-}
-
-#logo {
-    height: 60px;
-    padding: 10px;
-    background-color: white;
-}
-
-#list-menu {
-    align-items: center;
-}
-
-.list-menu-item {
-    list-style: none;
-    display: inline;
-}
-
-.list-menu-item-link {
-    font-size: 20px;
-    margin: 0 30px 0 0;
-    line-height: 4;
-}
-
-.list-menu-item-link:hover {
-    color: #1DB954;
-}
-body{
-    background-color: #fff;
-}
-#content {
-    height: 600px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
-
-#content-txt {
-    font-size: 35px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    padding: 200px 0 0 0;
-}
-
-#content-button {
-    text-align: center;
-    padding: 30px;
-
-}
-
-#content-button-link {
-    color:#fff;
-    background-color: #1DB954;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 40px;
-    padding: 8px 70px 8px 70px;
-}
-
-#content-button-link:hover {
-    color:#000;
-    background-color: #fff;
-    /* background-color: rgba(0, 0, 0, 0);
-    border: 2px #fff solid; */
-    /* border: solid #000 2px; */
-}
-
-#footer{
-    background-color: #fff;
-}
-
-#footer-img-container {
-    text-align: center;
-}
-
-#footer-img {
-    width: 500px;
-}
-
-#footer-text {
-    text-align: center;
-    color: #000;
-    padding: 10px;
-}
-
-
-
-
-
-
-
-
 
 
 
