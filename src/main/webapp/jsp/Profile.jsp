@@ -35,9 +35,9 @@
         <p class="full_name"><% out.println(FN +" " + LN); %></p>
     </div>
     <div class="rightside">
-        <p class="reviews_count"><c:out value = "${ Reviewscount }">0</c:out></p>
+        <p class="reviews_count"><c:out value = "${ ReviewsCount }"></c:out></p>
         <p class="reviews_text">reviews</p>
-        <p class="upvotes_count"><c:out value = "${ Upvotescount }">0</c:out></p>
+        <p class="upvotes_count"><c:out value = "${ UpvotesCount }"></c:out></p>
         <p class="upvotes_text">upvotes</p>
     </div>
 
