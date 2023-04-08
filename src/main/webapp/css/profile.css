@@ -1,14 +1,17 @@
+@charset "UTF-8";	
+
 
 .banner{
 	
-	margin-right:30px;
-	margin-left:30px;
-	margin-top:0px;
+	margin-right:20px;
+	margin-left:20px;
+	margin-top:5px;
 	width : fill;
-	height : 200px ;
+    padding-bottom: 50px;
+	height : fit-content ;
 	border: solid  ;
 	border-width: thin;
-	
+	min-width: 1200px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	
@@ -18,7 +21,8 @@
 }
 
 .leftside{
-    margin-top: 40px;
+    min-width: 50%;
+    margin-top: 2%;
     width: 49%;
     border: solid;
     border-width: thin;
@@ -27,26 +31,44 @@
 
 }
 
-
-.banner-profile-picture-container{
-	width :120px;
-	border-radius : 60px;
-	border : 2px solid #000;
-	float: left;
-	margin-right: 10px ;
-	margin-left: 250px ; 
+.rightside{
+    min-width: 50%;
+    height: fit-content;
+    margin-top: -110px;
+    float: right;
+    width: 49%;  
+    border: solid;
+    border-width: thin ;
+    border-color: #F7FFF5;
 
 }
 
+.banner-profile-picture-container{
+	display: inline-block;
+    margin-top: 20px;
+	margin-left: 170px;
+    width: 130px;
+    height: 130px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid #868686;
+    overflow: hidden;
+}
+
+
+
 .form-profile-picture-container{
 	
-	border : 2px solid #000;
-	width :120px;
-	border-radius : 60px;
-	margin-right: 10px ;
-	margin-left: 42% ; 
-	cursor: pointer;
-
+    display: inline-block;
+	margin-left: 390px;
+    width: 120px;
+    height: 120px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    border: 1px solid #868686;
+    overflow: hidden;
 }
 
 #profile-image {
@@ -58,10 +80,13 @@
 
 
 .display_name{
-	margin-top: 20px;
+
 	text-transform: capitalize ;
 	font-size: 40px ;
     font-weight: 600;
+    margin-left: 315px;
+    margin-top: -105px;
+    position: relative;
 	
 }
 
@@ -71,22 +96,14 @@
 	font-size: 30px;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.6);
+    margin-left: 315px;
+    
 	
 }
 
-.rightside{
-    height: fit-content;
-    margin-top: -105px;
-    float: right;
-    width: 49%;  
-    border: solid;
-    border-width: thin ;
-    border-color: #F7FFF5;
-
-}
 
 .reviews_count{
-    margin-left: 35%;
+    margin-left: 310px;
     margin-top: 20px;
 	text-transform: capitalize ;
 	font-size: 40px ;
@@ -102,7 +119,7 @@
 }
 
 .upvotes_count{
-    margin-left: 55%;
+    margin-left: 470px;
     margin-top: -85px;
 	text-transform: capitalize ;
 	font-size: 40px ;
@@ -112,7 +129,7 @@
 
 .upvotes_text{
 
-    margin-left: 450px;
+    margin-left: 440px;
 	text-transform: capitalize ;
 	font-size: 30px ;
     font-weight: 600;   
@@ -121,12 +138,14 @@
 }
 
 .main{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    margin-left: 25%;
-    width : 50%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+   
+    max-width: fit-content;
 	height : fit-content ;
-
+    min-width: fit-content;
+    padding-right: 20px;
+    padding-left: 20px ;
 
     border: solid  ;
 	border-width: thin;
@@ -154,7 +173,7 @@
     line-height: 19px;
     color: rgba(0, 0, 0, 0.6);;
     padding: 4px 0 4px 35px;
-    margin: 20px 0px 15px 35%;
+    margin: 20px 0px 15px 320px;
 }
 
 .form-input {
@@ -167,9 +186,6 @@
     width: 400px;
     margin: 8px 35px;
 }
-
-
-
 
 
 #form-button {
@@ -208,4 +224,7 @@
     color: #fff;
     background-color: #000000;
 }
+
+
+
 

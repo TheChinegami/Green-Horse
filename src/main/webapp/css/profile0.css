@@ -11,7 +11,7 @@
 	height : fit-content ;
 	border: solid  ;
 	border-width: thin;
-	min-width: 1800px;
+	min-width: 1200px;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 	
@@ -59,10 +59,11 @@
 
 
 .form-profile-picture-container{
-	
+	min-width:120px;
+	cursor: pointer;
     display: inline-block;
-	margin-left: 390px;
-    width: 120px;
+	margin: 0 45% 0 45% ;
+    width: fill-parent;
     height: 120px;
     max-width: 200px;
     max-height: 200px;
@@ -136,12 +137,12 @@
 
 
 }
-
 .main{
+	
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-left: 480px;
-    max-width: fit-content;
+    margin: 0 17% 0 17%;
+    width:fill-parent;
 	height : fit-content ;
     min-width: fit-content;
     padding-right: 20px;
@@ -166,14 +167,14 @@
 }
 
 .form-title-profile-picture {
+	min-width:fit-content;
     display: block;
     font-style: normal;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 22px;
     line-height: 19px;
     color: rgba(0, 0, 0, 0.6);;
-    padding: 4px 0 4px 35px;
-    margin: 20px 0px 15px 320px;
+    margin: 20px 38% 15px 42%;
 }
 
 .form-input {
@@ -196,7 +197,7 @@
     border-radius: 8px;
     border: none;
     padding: 12px 0 12px 12px;
-    width: 250px;
+    width: 220px;
     margin: 50px 35px 8px 350px;
     cursor: pointer;
 }
@@ -215,7 +216,7 @@
     border-radius: 8px;
     border: none;
     padding: 12px 0 12px 12px;
-    width: 250px;
+    width: 220px;
     margin: 8px 8px 8px 8px;
     cursor: pointer;
 }
@@ -223,6 +224,11 @@
 #form-button-cancel:hover {
     color: #fff;
     background-color: #000000;
+}
+#profile-image{
+	
+	    cursor: pointer;
+	
 }
 
 
